@@ -36,7 +36,7 @@ def read_yaml():
         return load_data
 
 ##初始化设置全局变量
-logger = log_init('DY', './DY.log')
+logger = log_init('DY', './log/DY.log')
 conf   = read_yaml()
 gl.set_logger(logger)
 gl.set_conf(conf)
