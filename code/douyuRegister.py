@@ -1,125 +1,151 @@
 #!/usr/bin/python
 #-*- coding: UTF-8 -*-
-# FileName : douyuRegister.py
+# FileName : douyuRegisterTest3.py
 # Author   : Shan
 # DateTime : 2018/11/28
 # SoftWare : PyCharm
 
-import time,random
+import time,random,json
 from io import BytesIO
-import platform
+import platform,sys,os
 from PIL import Image
-from selenium import webdriver
-from selenium.webdriver import ActionChains
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.chrome.options import Options
-from selenium.webdriver.common.keys import Keys
-
+from PIL import ImageGrab
+import urllib
+import pyautogui
+import pyperclip
+import subprocess
+import inits     as inits
 import globalvar as gl
 global logger
+global CONF
+
 """
 功能：使用网页进行账号注册
 """
 class DouyuRegister():
-    def __init__(self,phone,pwd):
-        #self.url = 'https://passport.douyu.com/member/regNew?client_id=1&lang=cn'
+    def __init__(self):
         self.url = 'https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp'
+        self.success_url = 'https://www.douyu.com/member/cp'
+        self.location = dict()
+        self.size = pyautogui.size()
+        #macos 13.3
+        if self.size == (1280,800):
+            # macos 13.3
+            self.location = CONF['LCD1280x800']
+        elif self.size == (1920, 1080):
+            #windows
+            self.location = CONF['LCD1920x1080']
+        elif self.size == (1440, 900):
+            # macos 15
+            self.location = CONF['LCD1440x900']
+        logger.info(self.location)
         if platform.system() == 'Darwin':
-            chrome_options = webdriver.ChromeOptions()
-            chrome_options.add_experimental_option('excludeSwitches', ['enable-automation'])
-            #self.browser = webdriver.Firefox()
-            self.browser = webdriver.Chrome(executable_path='/Applications/chromedriver',chrome_options=chrome_options)
-            #self.browser = webdriver.Chrome("/STR/chromedriver/chromedriver")
-            self.browser.set_window_size(1200, 733)
+            subprocess.call(
+                ["/usr/bin/open", "-W", "-n", "-a", "/Applications/Google Chrome.app", "--args", "--incognito"]
+            )
         else:
-            chrome_options = webdriver.ChromeOptions()
-            chrome_options.add_argument('--log-level=3')
-            self.browser = webdriver.Chrome(executable_path=r'.\chromedriver.exe',chrome_options=chrome_options)
-            self.browser.set_window_size(1280, 733)
-        self.browser.delete_all_cookies()
-        self.wait = WebDriverWait(self.browser, 90)
-        self.phone = phone
-        self.pwd   = pwd
+            subprocess.Popen(['C:\Program Files (x86)\Google\Chrome\Application\chrome.exe', '-incognito'], shell=True)
+        self.phone = ''
+        self.pwd   = ''
         self.code  = ''
-        self.pngname = 'captcha1.png'
-        self.pnglenMax = 1300
+        self.timestr = time.strftime('%Y%m%d%H%M%S')
+        if platform.system() == 'Darwin':
+            self.screenshot    = 'png/' + self.timestr + 'screenshot.png'
+            self.pngname       = 'png/' + self.timestr + '.png'
+            self.pngnameAfter  = 'png/' + self.timestr + 'drag.png'
+        else:
+            self.screenshot    = 'png\\' + self.timestr + 'screenshot.png'
+            self.pngname       = 'png\\' + self.timestr + '.png'
+            self.pngnameAfter  = 'png\\' + self.timestr + 'drag.png'
+        self.pnglenMax = 2000
         self.pnglen    = 0
+        if platform.system() == 'Darwin':
+            self.pngsize   = 75*1024
+        else:
+            self.pngsize   = 30*1024
+        self.cookie   = ''
+        self.open()
 
     def __del__(self):
-        self.browser.close()
+        time.sleep(5)
+        if platform.system() != 'Darwin':
+            pyautogui.moveTo(self.location['close']['x'],self.location['close']['y'],self.location['close']['t'])
+            pyautogui.click()
+        else:
+            pyautogui.moveTo(self.location['close']['x'],self.location['close']['y'],self.location['close']['t'])
+            pyautogui.click()
 
     def get_geetest_button(self):
         """
         获取初始验证按钮
         :return:
         """
-        button = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@type='button' and @value='短信验证']")))
-        return button
+        #点击  短信验证  按钮
+        pyautogui.moveTo(self.location['codeValidate']['x'],\
+                         self.location['codeValidate']['y'],\
+                         self.location['codeValidate']['t'])
+        pyautogui.click()
 
     def open(self):
         """
         打开网页输入用户名密码
         :return: None
         """
-        self.browser.get(self.url)
+        #鼠标移动到浏览器的地址栏
+        pyautogui.moveTo(self.location['url']['x'],\
+                         self.location['url']['y'],\
+                         self.location['url']['t'],\
+                         pyautogui.easeInOutQuad)
+        pyautogui.click()
+        time.sleep(1)
+        #输入网址
+        #pyautogui.typewrite(self.url)
+        pyperclip.copy(self.url)
+        if platform.system() == 'Darwin':
+            pyautogui.hotkey("command", "v")
+        else:
+            pyautogui.hotkey("ctrl", "v")
+        time.sleep(1)
+        pyautogui.press('enter')
+        time.sleep(2)
         logger.debug('已经打开页面:%s', self.url)
-        phone = self.wait.until(EC.presence_of_element_located((By.XPATH, "//input[@name='phoneNum' and @placeholder='请输入手机号码']")))
-        pwd = self.wait.until(EC.presence_of_element_located((By.XPATH, "//input[@name='password' and @placeholder='输入密码']")))
-        phone.send_keys(self.phone)
-        pwd.send_keys(self.pwd)
-        logger.debug('已经输入手机号和密码：%s，%s', self.phone,self.pwd)
+        time.sleep(5)
 
-    def login(self):
-        """
-        登录
-        :return: None
-        """
-        submit = self.wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'login-btn')))
-        submit.click()
-        time.sleep(10)
-        print('登录成功')
+    def input_nickname_pwd(self,phone,pwd):
+        self.phone = phone
+        self.pwd   = pwd
 
-    def switch_window(self,driver, now):
-        all_handles = driver.window_handles  # 得到当前开启的所有窗口的句柄
-        for handle in all_handles:
-            if handle != now:  # 获取到与当前窗口不一样的窗口
-                driver.switch_to_window(handle)  # 切换
+    def fill_nickname_pwd(self):
+        #输入手机号码
+        pyautogui.moveTo(self.location['nickname']['x'],self.location['nickname']['y'],self.location['nickname']['t'])
+        pyautogui.click()
+        pyperclip.copy(self.phone)
+        if platform.system() == 'Darwin':
+            pyautogui.hotkey("command", "v")
+        else:
+            pyautogui.hotkey("ctrl", "v")
+        logger.debug('已输入phone number')
+
+        #输入密码
+        pyautogui.moveTo(self.location['pwd']['x'],self.location['pwd']['y'],self.location['pwd']['t'])
+        pyautogui.click()
+        pyperclip.copy(self.pwd)
+        if platform.system() == 'Darwin':
+            pyautogui.hotkey("command", "v")
+        else:
+            pyautogui.hotkey("ctrl", "v")
+        logger.debug('已输入密码')
 
     def goonreg(self):
         """
         继续注册
         :return: None
         """
+        # 手机号码也许已经注册了，解绑一下
         logger.debug('等待2秒查询是否出现 继续注册 按钮')
         time.sleep(2)
-        now = self.browser.current_window_handle
-        self.switch_window(self.browser, now)
-        #reg = self.wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'aui_state_highlight')))
-        try:
-            reg = self.browser.find_element(By.CLASS_NAME, 'aui_state_highlight')
-            logger.debug('找到元素，继续注册按钮，准备点击')
-            reg.click()
-            now = self.browser.current_window_handle
-            self.switch_window(self.browser, now)
-            return True
-        except:
-            logger.debug('元素未找到，没有找到继续注册按钮')
-            now = self.browser.current_window_handle
-            self.switch_window(self.browser, now)
-            return False
-
-    def hadsend(self):
-        logger.debug('等待2秒查询是否已经发送短信')
-        time.sleep(2)
-        try:
-            hadsend = self.browser.find_element_by_xpath("//input[@class='phone-send js-sendvoice fl long']")
-            logger.debug('元素已找到，已发送短信')
-            return True
-        except:
-            logger.debug('元素未找到，没有发送短信')
-            return False
+        pyautogui.moveTo(self.location['goonReg']['x'],self.location['goonReg']['y'],self.location['goonReg']['t'])
+        pyautogui.click()
 
     def hasgeetest(self):
         """
@@ -128,45 +154,31 @@ class DouyuRegister():
         """
         logger.debug('等待2秒查询是否已经加载验证码')
         time.sleep(2)
-        try:
-            hadsend = self.browser.find_element(By.CLASS_NAME, "geetest_window")
-            logger.debug('元素已找到，已经加载了验证码')
+        self.get_geetest_image(self.pngname)
+        size = os.path.getsize(self.pngname)
+        logger.info('%s size: %dKB', self.pngname,size/1024)
+        if size > self.pngsize:
+            logger.info('png size > %dKB', self.pngsize/1024)
             return True
-        except:
-            logger.debug('元素未找到，没有加载验证码')
-            return False
-
-    def get_position_by_name(self, classname):
-        """
-        获取验证码位置
-        :return: 验证码位置元组
-        """
-        img = self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, classname)))
-        #time.sleep(2)
-        location = img.location
-        size = img.size
-        top, bottom, left, right = location['y'], location['y'] + size['height'], location['x'], location['x'] + size[
-            'width']
-        logger.info("top:%d,bottom:%d,left:%d,right:%d", top,bottom,left,right)
-        return (top, bottom, left, right)
+        logger.info('png size < %dKB', self.pngsize/1024)
+        return False
 
     def get_position(self):
-        top1, bottom1, left1, right1 = self.get_position_by_name('geetest_head')
-        top2, bottom2, left2, right2 = self.get_position_by_name('geetest_table_box')
-        top,bottom,left,right = top1,bottom2,left1,right2
+        top, bottom, left, right = self.location['geetestLeftUp']['y'], \
+                                   self.location['geetestRightDn']['y'],\
+                                   self.location['geetestLeftUp']['x'], \
+                                   self.location['geetestRightDn']['x']
         logger.info("top:%d,bottom:%d,left:%d,right:%d", top, bottom, left, right)
         return (top,bottom,left,right)
 
     def get_screenshot(self):
         """
-        获取网页截图
+        获取屏幕
         :return: 截图对象
         """
-        #screenshot = self.browser.get_screenshot_as_png('screen.png')
-        #screenshot = Image.open(BytesIO(screenshot))
-
-        self.browser.save_screenshot('screenshot.png')
-        screenshot = Image.open('screenshot.png')
+        im = ImageGrab.grab()
+        im.save(self.screenshot,'png')
+        screenshot = Image.open(self.screenshot)
         return screenshot
 
     def get_geetest_image(self, name='captcha.png'):
@@ -188,64 +200,12 @@ class DouyuRegister():
         captcha.save(name)
         return captcha
 
-    def EnsureSendCode(self):
-        """
-        检查验证码验证是否完成
-        :return:
-        """
-        # 如果出现继续注册
-        rv = self.goonreg()
-        if rv == True:
-            logger.info('点击继续注册成功')
-            return True
-
-        rv = self.hadsend()
-        if rv == True:
-            logger.info('短信已经发送，准备接收短信')
-            return True
-        logger.info('短信未发送，需要继续')
-        logger.error('检查短信未发送')
-        return False
-
-    def sendcode(self):
-        # 输入用户名密码
-        self.open()
-        # 点击验证按钮
-        time.sleep(2)
-        button = self.get_geetest_button()
-        button.click()
-        logger.debug('已经点击短信验证')
-        #查询是否出现验证码
-        rv = self.hasgeetest()
-        if rv == True:
-            logger.debug('已经加载了验证码，需要手动验证')
-            #检测
-            for i in range(1, 10, 1):
-                logger.debug('循环次数：%d',i)
-                rv = self.EnsureSendCode()
-                if rv == True:
-                    logger.info('验证码 验证通过')
-                    break
-                else:
-                    logger.debug('验证失败')
-        logger.debug('未加载验证码')
-        #检测
-        rv = self.EnsureSendCode()
-        if rv == True:
-            logger.info('验证通过')
-            rv = self.hadsend()
-            if rv == True:
-                logger.info('短信已经发送，准备接收短信')
-            return True
-        return False
-
     def get_png(self):
         # 输入用户名密码
-        self.open()
+        self.fill_nickname_pwd()
         # 点击验证按钮
         time.sleep(2)
-        button = self.get_geetest_button()
-        button.click()
+        self.get_geetest_button()
         logger.debug('已经点击短信验证')
         logger.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
         #查询是否出现验证码
@@ -253,7 +213,6 @@ class DouyuRegister():
         if rv == True:
             logger.debug('已经加载了验证码，保存验证码')
             # 获取验证码图片,并保存
-            image1 = self.get_geetest_image(self.pngname)
             return self.pngname
         return False
 
@@ -280,97 +239,35 @@ class DouyuRegister():
         logger.debug(location)
         return location
 
-    def click_word(self, location_str):
+    def drag_slider(self, location_str):
         """
-        根据坐标点击文字，然后发送验证码
-        :param location:（x,y|x,y|x,y）多个文字，2或者3或者4或者5
+        拖动滑块
+        :param location:（x,y）滑块的坐标
         :return:
         """
         #翻译坐标，将字符串转成字典
         location = self.translate_location(location_str)
+        logger.info(location)
+        x = location[0]['x']
+        y = location[0]['y']
+        logger.info('x: %d  y: %d', x,y)
+        pyautogui.moveTo(self.location['dragSlider']['x'], self.location['dragSlider']['y'], self.location['dragSlider']['t'])
+        pyautogui.mouseDown()
+        pyautogui.move(x-12,0,2,pyautogui.easeOutQuad)
+        self.get_geetest_image(self.pngnameAfter)
+        pyautogui.mouseUp()
+        time.sleep(13)
 
-        #定位鼠标
-        top, bottom, left, right = self.get_position_by_name('geetest_panel_next')
-        x = int((right - left  ) / 2)
-        y = int((bottom  - top ) / 2)
-        logger.info("偏移位置：x:%d,y:%d", x, y)
-
-        #产生新的坐标
-        location_new = list()
-        for index in range(len(location)):
-            for i in range(5):
-                x1 = random.randint(1,x*2)
-                y1 = random.randint(1,y*2)
-                t1 = dict(x=x1,y=y1,click=False)
-                location_new.append(t1)
-            x1 = location[index]['x']
-            y1 = location[index]['y']
-            t1 = dict(x=x1,y=y1,click=True)
-            location_new.append(t1)
-
-        for i in range(10):
-            x1 = random.randint(1, x * 2)
-            y1 = random.randint(1, y * 2)
-            t1 = dict(x=x1, y=y1, click=False)
-            location_new.append(t1)
-        logger.info(location_new)
-
-        for index in range(len(location_new)):
-            x1 = location_new[index]['x']
-            y1 = location_new[index]['y']
-            location_new[index]['x'] = x1 - x
-            location_new[index]['y'] = y1 - y
-            x = x1
-            y = y1
-        logger.info(location_new)
-        menu = self.browser.find_element(By.CLASS_NAME, 'geetest_panel_next')
-        ActionChains(self.browser).move_to_element(menu).perform()
-
-        for array in location_new:
-            x1 = array['x']
-            y1 = array['y']
-            logger.info("相对于上一次的偏移位置：x:%d,y:%d", x1, y1)
-            ActionChains(self.browser).move_by_offset(xoffset=x1, yoffset=y1).perform()
-            if array['click'] == True:
-                logger.info('点击')
-                ActionChains(self.browser).click().perform()
-            b = 0.1
-            logger.info('点击延时：%f秒', b)
-            time.sleep(b)
-
-        #点击确定
-        #button = self.browser.find_element(By.CLASS_NAME, 'geetest_commit_tip')
-        button = self.wait.until(EC.element_to_be_clickable((By.CLASS_NAME, 'geetest_commit_tip')))
-        button.click()
-
-        logger.info(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()))
-        # 检测
-        for i in range(1, 10, 1):
-            logger.debug('循环次数：%d', i)
-            rv = self.EnsureSendCode()
-            if rv == True:
-                logger.info('验证码 验证通过')
-                break
-            else:
-                logger.debug('验证失败')
-
-        #检测
-        rv = self.EnsureSendCode()
-        if rv == True:
-            logger.info('验证通过')
-            rv = self.hadsend()
-            if rv == True:
-                logger.info('短信已经发送，准备接收短信')
-            return True
-        return False
+        return True
 
     def setcode(self,code):
         self.code = code
         logger.debug('收到验证码为：'+code)
 
     def inputcode(self):
-        code = self.wait.until(EC.presence_of_element_located((By.XPATH, "//input[@name='phoneCaptcha' and @placeholder='输入验证码']")))
-        code.send_keys(self.code)
+        pyautogui.moveTo(self.location['inputCode']['x'],self.location['inputCode']['y'],self.location['inputCode']['t'])
+        pyautogui.click()
+        pyautogui.typewrite(self.code)
         logger.debug('已输入验证码')
 
     def checklogin(self):
@@ -379,14 +276,22 @@ class DouyuRegister():
         :return:
         """
         logger.debug('等待3秒，查询注册登陆成功')
-        time.sleep(3)
-        self.switch_window(self.browser, self.browser.current_window_handle)
-        try:
-            #hadsend = self.browser.find_element(By.CLASS_NAME, "l-txt")
-            hadsend = self.browser.find_element(By.XPATH, "//span[@class='user_top js_nickname']")
+        time.sleep(10)
+
+        #鼠标移动到浏览器的地址栏
+        pyautogui.moveTo(self.location['url']['x'], self.location['url']['y'], self.location['url']['t'], pyautogui.easeInOutQuad)
+        pyautogui.click()
+        time.sleep(1)
+        if platform.system() == 'Darwin':
+            pyautogui.hotkey("command", "c")
+        else:
+            pyautogui.hotkey("ctrl", "c")
+        url = pyperclip.paste()
+        logger.info('user info url:%s', url)
+        if url == self.success_url:
             logger.debug('元素已找到，登陆成功')
             return True
-        except:
+        else:
             logger.debug('元素未找到，登陆未成功')
             return False
 
@@ -394,40 +299,88 @@ class DouyuRegister():
         """
         获取登陆之后的用户名
         :return: 用户名
-        """
-        #nickname = self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, "l-txt")))
-        nickname = self.wait.until(EC.presence_of_element_located((By.XPATH, "//span[@class='user_top js_nickname']")))
-        username =  nickname.text
-        logger.debug("username: " + username)
-        logger.debug(type(username))
-        return username
 
-    def get_cookie(self):
+        time.sleep(5)
+        pyautogui.mouseDown(self.location['copyNicknameBegin']['x'], \
+                            self.location['copyNicknameBegin']['y'], \
+                            self.location['copyNicknameBegin']['t'])
+        pyautogui.mouseUp(self.location['copyNicknameEnd']['x'], \
+                            self.location['copyNicknameEnd']['y'], \
+                            self.location['copyNicknameEnd']['t'])
+        time.sleep(1)
+        if platform.system() == 'Darwin':
+            pyautogui.hotkey("command", "c")
+        else:
+            pyautogui.hotkey("ctrl", "c")
+        nickname = pyperclip.paste()
+        if platform.system() == 'Darwin':
+            nickname = nickname.replace("\n", "")
+        else:
+            nickname = nickname.replace("\n", "")
+            nickname = nickname.strip()
+        logger.info('nickname:%s', nickname)
+        logger.info('nickname len:%d', len(nickname))
+        return nickname
+         """
+        if self.cookie == '':
+            self.cookie = self._get_cookie()
+        aa = self.cookie.split('acf_nickname=')
+        bb = aa[1].split(';', 1)
+        cc = bb[0].encode('utf8')
+        nickname = urllib.unquote(cc)
+        logger.debug("username: " + nickname)
+        logger.debug(type(nickname))
+        return nickname
+
+    def _get_cookie(self):
         """
         获取cooke
         :return: cookie
         """
-        cookies = self.browser.get_cookies()
-        logger.info(cookies)
-        i=0
+        time.sleep(2)
+        pyautogui.moveTo(self.location['editCookie']['x'], \
+                         self.location['editCookie']['y'],  \
+                         self.location['editCookie']['t'],  \
+                         pyautogui.easeInOutQuad)
+        pyautogui.click()
+        time.sleep(6)
+        pyautogui.moveTo(self.location['copyCookie']['x'], \
+                        self.location['copyCookie']['y'], \
+                        self.location['copyCookie']['t'], \
+                         pyautogui.easeInOutQuad)
+        pyautogui.click()
+        time.sleep(2)
+        data = pyperclip.paste()
+        cookies = json.loads(data)
         cookie_str = ''
+        i = 0
         for cookie in cookies:
             if cookie.has_key('name') == True and cookie.has_key('value') == True:
                 if i != 0:
                     cookie_str = cookie_str + '; '
-                cookie_str = cookie_str + cookie['name']+'='+cookie['value']
+                cookie_str = cookie_str + cookie['name'] + '=' + cookie['value']
             i = i + 1
-        logger.info(cookie_str)
         return cookie_str
+
+    def get_cookie(self):
+        """
+        返回cookie
+        :return:
+        """
+        if self.cookie == '':
+            self.cookie = self._get_cookie()
+        return self.cookie
 
     def register(self):
         #输入验证码
         self.inputcode()
 
-        #点击立即注册
+        #点击  立即注册
         time.sleep(1)
-        submit = self.wait.until(EC.element_to_be_clickable((By.XPATH, "//input[@data-i18n='Register' and @value='立即注册']")))
-        submit.click()
+        pyautogui.moveTo(self.location['register']['x'], \
+                         self.location['register']['y'], \
+                         self.location['register']['t'])
+        pyautogui.click()
 
         #页面跳转到登陆页面
         rv = self.checklogin()
@@ -438,38 +391,33 @@ class DouyuRegister():
             logger.debug('注册失败')
         return False
 
-    def get_umes(self):
-        """
-        获取站内信数量，一封OK，两封异常
-        :return: True  正常
-                 False 异常
-        """
-        self.url = 'https://www.douyu.com/member/cp'
-        self.browser.get(self.url)
-        logger.debug('已经打开页面:%s', self.url)
-        #有可能出现没有站内信的情况
-        logger.debug('延迟60秒钟，等待获取信息')
-        time.sleep(60)
-        letters = self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, "letter_num")))
-        letters_num =  letters.text
-        logger.debug("letters number: " + letters_num)
-        logger.debug(type(letters_num))
-        if letters_num == '1':
-            return True
-        else:
-            return False
-
 logger = gl.get_logger()
+CONF   = gl.get_conf()
 
 """
 if __name__ == '__main__':
+    reload(sys)
+    sys.setdefaultencoding('utf8')
     logger = gl.get_logger()
-    crack = DouyuRegister('13658102348','aDdeS3aBC')
-    rv= crack.sendcode()
-    if rv == True:
-        logger.info('验证码发送成功，准备接收验证码')
-    crack.setcode('456723')
+    CONF   = gl.get_conf()
+    phone = raw_input('Enter phone-->')
+    print('phone:%s',phone)
+    crack = DouyuRegister(phone, phone)
+    rv= crack.get_png()
+    if rv != False:
+        logger.info('获取验证码成功，准备识别')
+        time.sleep(20)
+    crack.goonreg()
+    code = raw_input('Enter code-->')
+    print("code: %s", code)
+    time.sleep(10)
+    crack.setcode(code)
     crack.register()
-    time.sleep(30)
+    nickname = crack.get_nickname()
+    cookie   = crack.get_cookie()
+    print('nickname:%s ,pwd:aDdeS3aBC, cookie:%s',nickname, cookie)
 """
+
+
+
 

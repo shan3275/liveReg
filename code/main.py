@@ -24,7 +24,6 @@ import globalvar as gl
 import airtel    as airtel
 import e8372h as e8372h
 import douyuRegister       as douyuRegister
-import douyuRegisterTest3   as douyuRegisterTest
 import douyuLogin          as douyuLogin
 import douyuLoginTest     as douyuLoginTest
 import jsyzm         as jsyzm
@@ -283,7 +282,7 @@ def RegisterOneAccountV5(reset=True):
 
     ##第二步 打开页面
     if CONF['douyulogintest'] == True:
-        crack = douyuRegisterTest.DouyuRegister()
+        crack = douyuRegister.DouyuRegister()
     else:
         crack = douyuRegister.DouyuRegister()
 
