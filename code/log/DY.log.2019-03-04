@@ -1,0 +1,192 @@
+2019-03-04 10:41:08,143 - DY - DEBUG - {'ck': 'CK.txt', 'acc': 'acc.txt', 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': False, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'upload': False, 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'usedati': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'up': 'upck.txt', 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-04 10:42:12,711 - DY - DEBUG - {'ck': 'CK.txt', 'acc': 'acc.txt', 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': False, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'upload': False, 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'usedati': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'up': 'upck.txt', 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-04 10:43:28,756 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:43:28,757 - DY - DEBUG - 命令字: action=loginIn&name=kstr&password=RkuTQszg4JXzrUVX
+2019-03-04 10:43:28,758 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:43:28,758 - DY - DEBUG - 返回内容：0|登录失败，用户不存在或密码不正确
+2019-03-04 10:43:28,758 - DY - DEBUG - ['0', '\xe7\x99\xbb\xe5\xbd\x95\xe5\xa4\xb1\xe8\xb4\xa5\xef\xbc\x8c\xe7\x94\xa8\xe6\x88\xb7\xe4\xb8\x8d\xe5\xad\x98\xe5\x9c\xa8\xe6\x88\x96\xe5\xaf\x86\xe7\xa0\x81\xe4\xb8\x8d\xe6\xad\xa3\xe7\xa1\xae']
+2019-03-04 10:43:28,758 - DY - ERROR - 登录失败，用户不存在或密码不正确
+2019-03-04 10:43:28,759 - DY - ERROR - FireCloud 接码平台登陆获取Token失败
+2019-03-04 10:43:28,865 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:43:28,865 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=&vno=0
+2019-03-04 10:43:28,865 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:43:28,865 - DY - DEBUG - 返回内容：0|信息不全！
+2019-03-04 10:43:28,866 - DY - DEBUG - ['0', '\xe4\xbf\xa1\xe6\x81\xaf\xe4\xb8\x8d\xe5\x85\xa8\xef\xbc\x81']
+2019-03-04 10:43:28,866 - DY - ERROR - 信息不全！
+2019-03-04 10:46:35,570 - DY - DEBUG - {'ck': 'CK.txt', 'acc': 'acc.txt', 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': False, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'upload': False, 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'usedati': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'up': 'upck.txt', 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-04 10:46:45,754 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:46:45,754 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 10:46:45,754 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:46:45,754 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 10:46:45,755 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 10:46:53,020 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:46:53,020 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 10:46:53,020 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:46:53,021 - DY - DEBUG - 返回内容：0|余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:46:53,021 - DY - DEBUG - ['0', '\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\x8d\xe8\xb6\xb3\xef\xbc\x8c\xe5\xbd\x93\xe5\x89\x8d\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\xba0.000\xe5\x85\x83\xef\xbc\x8c\xe5\x85\xb6\xe4\xb8\xad\xe4\xbd\xbf\xe7\x94\xa8\xe4\xb8\xad\xe7\x9a\x84\xe9\xa1\xb9\xe7\x9b\xae\xe9\x94\x81\xe5\xae\x9a0.000\xe5\x85\x83\xe3\x80\x82\xe6\x89\x80\xe9\x9c\x80\xe9\xa1\xb9\xe7\x9b\xae\xe4\xbb\xb7\xe6\xa0\xbc\xe4\xb8\xba0.1\xe5\x85\x83\xe3\x80\x82\xe8\xaf\xb7\xe9\x87\x8a\xe6\x94\xbe\xe5\x8d\xa0\xe7\x94\xa8\xe5\x8f\xb7\xe7\xa0\x81\xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe4\xbd\xbf\xe7\x94\xa8!']
+2019-03-04 10:46:53,021 - DY - ERROR - 余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:49:03,101 - DY - DEBUG - {'ck': 'CK.txt', 'acc': 'acc.txt', 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': False, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'upload': False, 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'usedati': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'up': 'upck.txt', 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-04 10:49:11,851 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:49:11,852 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 10:49:11,852 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:49:11,852 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 10:49:11,852 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 10:49:11,941 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:49:11,941 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 10:49:11,941 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:49:11,942 - DY - DEBUG - 返回内容：0|余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:49:11,942 - DY - DEBUG - ['0', '\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\x8d\xe8\xb6\xb3\xef\xbc\x8c\xe5\xbd\x93\xe5\x89\x8d\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\xba0.000\xe5\x85\x83\xef\xbc\x8c\xe5\x85\xb6\xe4\xb8\xad\xe4\xbd\xbf\xe7\x94\xa8\xe4\xb8\xad\xe7\x9a\x84\xe9\xa1\xb9\xe7\x9b\xae\xe9\x94\x81\xe5\xae\x9a0.000\xe5\x85\x83\xe3\x80\x82\xe6\x89\x80\xe9\x9c\x80\xe9\xa1\xb9\xe7\x9b\xae\xe4\xbb\xb7\xe6\xa0\xbc\xe4\xb8\xba0.1\xe5\x85\x83\xe3\x80\x82\xe8\xaf\xb7\xe9\x87\x8a\xe6\x94\xbe\xe5\x8d\xa0\xe7\x94\xa8\xe5\x8f\xb7\xe7\xa0\x81\xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe4\xbd\xbf\xe7\x94\xa8!']
+2019-03-04 10:49:11,942 - DY - ERROR - 余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:52:24,164 - DY - DEBUG - {'ck': 'CK.txt', 'acc': 'acc.txt', 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': False, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'upload': False, 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'usedati': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'up': 'upck.txt', 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-04 10:52:34,049 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:52:34,049 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 10:52:34,050 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:52:34,050 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 10:52:34,050 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 10:52:34,130 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:52:34,130 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 10:52:34,131 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:52:34,131 - DY - DEBUG - 返回内容：0|余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:52:34,131 - DY - DEBUG - ['0', '\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\x8d\xe8\xb6\xb3\xef\xbc\x8c\xe5\xbd\x93\xe5\x89\x8d\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\xba0.000\xe5\x85\x83\xef\xbc\x8c\xe5\x85\xb6\xe4\xb8\xad\xe4\xbd\xbf\xe7\x94\xa8\xe4\xb8\xad\xe7\x9a\x84\xe9\xa1\xb9\xe7\x9b\xae\xe9\x94\x81\xe5\xae\x9a0.000\xe5\x85\x83\xe3\x80\x82\xe6\x89\x80\xe9\x9c\x80\xe9\xa1\xb9\xe7\x9b\xae\xe4\xbb\xb7\xe6\xa0\xbc\xe4\xb8\xba0.1\xe5\x85\x83\xe3\x80\x82\xe8\xaf\xb7\xe9\x87\x8a\xe6\x94\xbe\xe5\x8d\xa0\xe7\x94\xa8\xe5\x8f\xb7\xe7\xa0\x81\xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe4\xbd\xbf\xe7\x94\xa8!']
+2019-03-04 10:52:34,132 - DY - ERROR - 余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:53:07,156 - DY - DEBUG - {'ck': 'CK.txt', 'acc': 'acc.txt', 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': False, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'upload': False, 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'usedati': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'up': 'upck.txt', 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-04 10:53:12,428 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:53:12,429 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 10:53:12,429 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:53:12,429 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 10:53:12,429 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 10:53:12,519 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:53:12,519 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 10:53:12,520 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:53:12,520 - DY - DEBUG - 返回内容：0|余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:53:12,520 - DY - DEBUG - ['0', '\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\x8d\xe8\xb6\xb3\xef\xbc\x8c\xe5\xbd\x93\xe5\x89\x8d\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\xba0.000\xe5\x85\x83\xef\xbc\x8c\xe5\x85\xb6\xe4\xb8\xad\xe4\xbd\xbf\xe7\x94\xa8\xe4\xb8\xad\xe7\x9a\x84\xe9\xa1\xb9\xe7\x9b\xae\xe9\x94\x81\xe5\xae\x9a0.000\xe5\x85\x83\xe3\x80\x82\xe6\x89\x80\xe9\x9c\x80\xe9\xa1\xb9\xe7\x9b\xae\xe4\xbb\xb7\xe6\xa0\xbc\xe4\xb8\xba0.1\xe5\x85\x83\xe3\x80\x82\xe8\xaf\xb7\xe9\x87\x8a\xe6\x94\xbe\xe5\x8d\xa0\xe7\x94\xa8\xe5\x8f\xb7\xe7\xa0\x81\xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe4\xbd\xbf\xe7\x94\xa8!']
+2019-03-04 10:53:12,520 - DY - ERROR - 余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:54:26,763 - DY - DEBUG - {'ck': 'CK.txt', 'acc': 'acc.txt', 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': False, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'upload': False, 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'usedati': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'up': 'upck.txt', 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-04 10:54:38,321 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:54:38,321 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 10:54:38,321 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:54:38,322 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 10:54:38,322 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 10:54:38,415 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:54:38,415 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 10:54:38,415 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:54:38,415 - DY - DEBUG - 返回内容：0|余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:54:38,415 - DY - DEBUG - ['0', '\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\x8d\xe8\xb6\xb3\xef\xbc\x8c\xe5\xbd\x93\xe5\x89\x8d\xe4\xbd\x99\xe9\xa2\x9d\xe4\xb8\xba0.000\xe5\x85\x83\xef\xbc\x8c\xe5\x85\xb6\xe4\xb8\xad\xe4\xbd\xbf\xe7\x94\xa8\xe4\xb8\xad\xe7\x9a\x84\xe9\xa1\xb9\xe7\x9b\xae\xe9\x94\x81\xe5\xae\x9a0.000\xe5\x85\x83\xe3\x80\x82\xe6\x89\x80\xe9\x9c\x80\xe9\xa1\xb9\xe7\x9b\xae\xe4\xbb\xb7\xe6\xa0\xbc\xe4\xb8\xba0.1\xe5\x85\x83\xe3\x80\x82\xe8\xaf\xb7\xe9\x87\x8a\xe6\x94\xbe\xe5\x8d\xa0\xe7\x94\xa8\xe5\x8f\xb7\xe7\xa0\x81\xe5\x90\x8e\xe7\xbb\xa7\xe7\xbb\xad\xe4\xbd\xbf\xe7\x94\xa8!']
+2019-03-04 10:54:38,415 - DY - ERROR - 余额不足，当前余额为0.000元，其中使用中的项目锁定0.000元。所需项目价格为0.1元。请释放占用号码后继续使用!
+2019-03-04 10:57:43,066 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:57:43,067 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 10:57:43,068 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:57:43,068 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 10:57:43,068 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 10:57:43,236 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 10:57:43,236 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 10:57:43,237 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 10:57:43,237 - DY - DEBUG - 返回内容：1|13618906894|西藏 拉萨
+2019-03-04 10:57:43,237 - DY - DEBUG - ['1', '13618906894|\xe8\xa5\xbf\xe8\x97\x8f \xe6\x8b\x89\xe8\x90\xa8']
+2019-03-04 11:02:36,484 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:02:36,485 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:02:36,486 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:02:36,486 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:02:36,486 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:02:36,574 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:02:36,575 - DY - DEBUG - 命令字: action=cancelRecv&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=13618906894
+2019-03-04 11:02:36,575 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:02:36,575 - DY - DEBUG - 1|操作成功
+2019-03-04 11:02:36,576 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-04 11:02:36,576 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-04 11:02:36,577 - DY - DEBUG - ['1', '\xe6\x93\x8d\xe4\xbd\x9c\xe6\x88\x90\xe5\x8a\x9f']
+2019-03-04 11:02:36,577 - DY - INFO - 成功释放
+2019-03-04 11:04:20,025 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:04:20,025 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:04:20,025 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:04:20,025 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:04:20,026 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:04:20,173 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:04:20,173 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 11:04:20,173 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:04:20,173 - DY - DEBUG - 返回内容：1|16510435593|吉林 四平
+2019-03-04 11:04:20,174 - DY - DEBUG - ['1', '16510435593|\xe5\x90\x89\xe6\x9e\x97 \xe5\x9b\x9b\xe5\xb9\xb3']
+2019-03-04 11:07:34,788 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:07:34,790 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:07:34,791 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:07:34,791 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:07:34,791 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:07:34,868 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:07:34,868 - DY - DEBUG - 命令字: action=cancelRecv&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=16510435593
+2019-03-04 11:07:34,868 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:07:34,868 - DY - DEBUG - 1|操作成功
+2019-03-04 11:07:34,868 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-04 11:07:34,869 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-04 11:07:34,869 - DY - DEBUG - ['1', '\xe6\x93\x8d\xe4\xbd\x9c\xe6\x88\x90\xe5\x8a\x9f']
+2019-03-04 11:07:34,869 - DY - INFO - 成功释放
+2019-03-04 11:07:45,699 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:07:45,699 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:07:45,699 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:07:45,699 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:07:45,699 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:07:48,902 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:07:48,902 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 11:07:48,902 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:07:48,902 - DY - DEBUG - 返回内容：1|15700415830|四川 遂宁
+2019-03-04 11:07:48,903 - DY - DEBUG - ['1', '15700415830|\xe5\x9b\x9b\xe5\xb7\x9d \xe9\x81\x82\xe5\xae\x81']
+2019-03-04 11:09:08,927 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:09:08,927 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:09:08,927 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:09:08,928 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:09:08,928 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:09:09,007 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:09:09,007 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15700415830
+2019-03-04 11:09:09,007 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:09:09,007 - DY - DEBUG - 1|【斗鱼直播】验证码：666858，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-04 11:09:09,008 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：666858，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-04 11:09:09,008 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：666858，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-04 11:09:09,008 - DY - DEBUG - ['1', '\xe3\x80\x90\xe6\x96\x97\xe9\xb1\xbc\xe7\x9b\xb4\xe6\x92\xad\xe3\x80\x91\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xef\xbc\x9a666858\xef\xbc\x8c\xe6\x9c\xac\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xe6\x9c\x89\xe6\x95\x88\xe6\x97\xb6\xe9\x97\xb45\xe5\x88\x86\xe9\x92\x9f\xef\xbc\x8c\xe8\xaf\xb7\xe5\x8b\xbf\xe5\x91\x8a\xe7\x9f\xa5\xe4\xbb\x96\xe4\xba\xba\xe3\x80\x82(\xe6\x9d\xa5\xe8\x87\xb310692853350761)</br>']
+2019-03-04 11:09:09,008 - DY - DEBUG - 验证码字符串截取：666858，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-04 11:09:09,008 - DY - DEBUG - 验证码获取成功：666858
+2019-03-04 11:13:27,456 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:13:27,457 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:13:27,458 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:13:27,458 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:13:27,458 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:13:27,606 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:13:27,606 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 11:13:27,606 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:13:27,607 - DY - DEBUG - 返回内容：1|14556643787|广东 东莞
+2019-03-04 11:13:27,607 - DY - DEBUG - ['1', '14556643787|\xe5\xb9\xbf\xe4\xb8\x9c \xe4\xb8\x9c\xe8\x8e\x9e']
+2019-03-04 11:15:21,168 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:15:21,168 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:15:21,168 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:15:21,168 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:15:21,168 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:15:21,245 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:15:21,246 - DY - DEBUG - 命令字: action=cancelRecv&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=14556643787
+2019-03-04 11:15:21,246 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:15:21,246 - DY - DEBUG - 1|操作成功
+2019-03-04 11:15:21,246 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-04 11:15:21,246 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-04 11:15:21,246 - DY - DEBUG - ['1', '\xe6\x93\x8d\xe4\xbd\x9c\xe6\x88\x90\xe5\x8a\x9f']
+2019-03-04 11:15:21,247 - DY - INFO - 成功释放
+2019-03-04 11:15:26,915 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:15:26,915 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:15:26,916 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:15:26,916 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:15:26,916 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:15:27,085 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:15:27,086 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-04 11:15:27,086 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:15:27,086 - DY - DEBUG - 返回内容：1|15289038748|西藏 山南
+2019-03-04 11:15:27,086 - DY - DEBUG - ['1', '15289038748|\xe8\xa5\xbf\xe8\x97\x8f \xe5\xb1\xb1\xe5\x8d\x97']
+2019-03-04 11:16:49,598 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:16:49,599 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-04 11:16:49,599 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:16:49,599 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-04 11:16:49,599 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-04 11:16:49,677 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-04 11:16:49,678 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15289038748
+2019-03-04 11:16:49,678 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-04 11:16:49,679 - DY - DEBUG - 1|【斗鱼直播】验证码：695839，本验证码有效时间5分钟，请勿告知他人。(来至10692355317596)</br>
+2019-03-04 11:16:49,679 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：695839，本验证码有效时间5分钟，请勿告知他人。(来至10692355317596)</br>
+2019-03-04 11:16:49,680 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：695839，本验证码有效时间5分钟，请勿告知他人。(来至10692355317596)</br>
+2019-03-04 11:16:49,680 - DY - DEBUG - ['1', '\xe3\x80\x90\xe6\x96\x97\xe9\xb1\xbc\xe7\x9b\xb4\xe6\x92\xad\xe3\x80\x91\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xef\xbc\x9a695839\xef\xbc\x8c\xe6\x9c\xac\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xe6\x9c\x89\xe6\x95\x88\xe6\x97\xb6\xe9\x97\xb45\xe5\x88\x86\xe9\x92\x9f\xef\xbc\x8c\xe8\xaf\xb7\xe5\x8b\xbf\xe5\x91\x8a\xe7\x9f\xa5\xe4\xbb\x96\xe4\xba\xba\xe3\x80\x82(\xe6\x9d\xa5\xe8\x87\xb310692355317596)</br>']
+2019-03-04 11:16:49,680 - DY - DEBUG - 验证码字符串截取：695839，本验证码有效时间5分钟，请勿告知他人。(来至10692355317596)</br>
+2019-03-04 11:16:49,681 - DY - DEBUG - 验证码获取成功：695839

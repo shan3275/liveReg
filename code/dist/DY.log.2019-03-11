@@ -1,0 +1,331 @@
+2019-03-11 12:39:18,292 - DY - DEBUG - {'ck': 'CK.txt', 'LCD1920x1080': {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 840, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}, 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'LCD1440x900': {'geetestRightDn': {'y': 554, 'x': 1249}, 'inputCode': {'y': 405, 'x': 990, 't': 1}, 'register': {'y': 477, 'x': 1130, 't': 0.6}, 'geetestLeftUp': {'y': 289, 'x': 990}, 'codeValidate': {'y': 400, 'x': 1222, 't': 1}, 'url': {'y': 81, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 340, 'x': 567, 't': 1}, 'goonReg': {'y': 450, 'x': 665, 't': 1}, 'copyNicknameEnd': {'y': 340, 'x': 687, 't': 2}, 'pwd': {'y': 349, 'x': 1010, 't': 1}, 'close': {'y': 45, 'x': 20, 't': 2}, 'nickname': {'y': 290, 'x': 1090, 't': 1}, 'dragSlider': {'y': 473, 'x': 1024, 't': 1}}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': True, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'up': 'upck.txt', 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'acc': 'acc.txt', 'usedati': True, 'LCD1280x800': {'geetestRightDn': {'y': 554, 'x': 1162}, 'inputCode': {'y': 405, 'x': 910, 't': 1}, 'register': {'y': 477, 'x': 1030, 't': 0.6}, 'geetestLeftUp': {'y': 289, 'x': 903}, 'codeValidate': {'y': 400, 'x': 1130, 't': 1}, 'url': {'y': 81, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 340, 'x': 479, 't': 1}, 'goonReg': {'y': 435, 'x': 575, 't': 1}, 'copyNicknameEnd': {'y': 339, 'x': 600, 't': 1}, 'pwd': {'y': 349, 'x': 918, 't': 1}, 'close': {'y': 45, 'x': 20, 't': 2}, 'nickname': {'y': 290, 'x': 1005, 't': 1}, 'dragSlider': {'y': 473, 'x': 936, 't': 1}}, 'usefirecloud': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'upload': False, 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-11 12:39:40,282 - DY - DEBUG - 已经登陆4G Modeml
+2019-03-11 12:39:44,740 - DY - DEBUG - 准备重启4G Modeml
+2019-03-11 12:40:26,349 - DY - DEBUG - 重启4G Model完成
+2019-03-11 12:40:26,535 - DY - INFO - 产生随机密码：c0ohyDg5
+2019-03-11 12:40:26,535 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 840, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-11 12:40:34,782 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-11 12:40:42,039 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:40:42,039 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-11 12:40:42,040 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:40:42,042 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-11 12:40:42,042 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-11 12:40:42,243 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:40:42,243 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-11 12:40:42,244 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:40:42,246 - DY - DEBUG - 返回内容：1|15142561742|辽宁 沈阳
+2019-03-11 12:40:42,246 - DY - DEBUG - ['1', '15142561742', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-11 12:40:43,605 - DY - DEBUG - 已输入phone number
+2019-03-11 12:40:44,989 - DY - DEBUG - 已输入密码
+2019-03-11 12:40:48,384 - DY - DEBUG - 已经点击短信验证
+2019-03-11 12:40:48,384 - DY - INFO - 2019-03-11 12:40:48
+2019-03-11 12:40:48,384 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-11 12:40:50,395 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:40:50,395 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:40:51,239 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-11 12:40:51,316 - DY - INFO - captcha1.png size: 0KB
+2019-03-11 12:40:51,316 - DY - INFO - png size < 75KB
+2019-03-11 12:40:51,316 - DY - DEBUG - 没有验证码，直接获取短信验证码
+2019-03-11 12:40:51,316 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-11 12:41:15,052 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:41:15,052 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142561742
+2019-03-11 12:41:15,052 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:41:15,052 - DY - DEBUG - 0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:41:15,052 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:41:15,052 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:41:15,052 - DY - DEBUG - ['0', '\xe8\xbf\x98\xe6\xb2\xa1\xe6\x9c\x89\xe6\x8e\xa5\xe6\x94\xb6\xe5\x88\xb0\xe7\x9f\xad\xe4\xbf\xa1\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbf\x873\xe7\xa7\x92\xe5\x86\x8d\xe8\xaf\x95\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\xbb\xe5\x8a\xa83\xe7\xa7\x92\xe5\x86\x8d\xe9\x87\x8d\xe6\x96\xb0\xe5\x8f\x96\xe7\x9f\xad\xe4\xbf\xa1\xe5\x86\x85\xe5\xae\xb9\xe3\x80\x82']
+2019-03-11 12:41:15,052 - DY - ERROR - 还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:41:15,052 - DY - ERROR - 获取短信失败
+2019-03-11 12:41:15,052 - DY - INFO - 释放号码
+2019-03-11 12:41:15,145 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:41:15,145 - DY - DEBUG - 命令字: action=cancelRecv&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142561742
+2019-03-11 12:41:15,145 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:41:15,145 - DY - DEBUG - 1|操作成功
+2019-03-11 12:41:15,145 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-11 12:41:15,145 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-11 12:41:15,145 - DY - DEBUG - ['1', '\xe6\x93\x8d\xe4\xbd\x9c\xe6\x88\x90\xe5\x8a\x9f']
+2019-03-11 12:41:15,145 - DY - INFO - 成功释放
+2019-03-11 12:41:22,908 - DY - INFO - 产生随机密码：33oTyuZN
+2019-03-11 12:41:22,908 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 840, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-11 12:41:28,611 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-11 12:41:37,000 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:41:37,000 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-11 12:41:37,000 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:41:37,000 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-11 12:41:37,000 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-11 12:41:37,171 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:41:37,171 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-11 12:41:37,171 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:41:37,171 - DY - DEBUG - 返回内容：1|15142076947|辽宁 沈阳
+2019-03-11 12:41:37,171 - DY - DEBUG - ['1', '15142076947', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-11 12:41:38,707 - DY - DEBUG - 已输入phone number
+2019-03-11 12:41:40,250 - DY - DEBUG - 已输入密码
+2019-03-11 12:41:43,763 - DY - DEBUG - 已经点击短信验证
+2019-03-11 12:41:43,763 - DY - INFO - 2019-03-11 12:41:43
+2019-03-11 12:41:43,763 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-11 12:41:45,766 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:41:45,766 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:41:46,612 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-11 12:41:46,690 - DY - INFO - captcha1.png size: 0KB
+2019-03-11 12:41:46,690 - DY - INFO - png size < 75KB
+2019-03-11 12:41:46,690 - DY - DEBUG - 没有验证码，直接获取短信验证码
+2019-03-11 12:41:46,690 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-11 12:42:10,470 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:42:10,470 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142076947
+2019-03-11 12:42:10,470 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:42:10,470 - DY - DEBUG - 1|【斗鱼直播】验证码：812052，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-11 12:42:10,470 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：812052，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-11 12:42:10,470 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：812052，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-11 12:42:10,470 - DY - DEBUG - ['1', '\xe3\x80\x90\xe6\x96\x97\xe9\xb1\xbc\xe7\x9b\xb4\xe6\x92\xad\xe3\x80\x91\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xef\xbc\x9a812052\xef\xbc\x8c\xe6\x9c\xac\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xe6\x9c\x89\xe6\x95\x88\xe6\x97\xb6\xe9\x97\xb45\xe5\x88\x86\xe9\x92\x9f\xef\xbc\x8c\xe8\xaf\xb7\xe5\x8b\xbf\xe5\x91\x8a\xe7\x9f\xa5\xe4\xbb\x96\xe4\xba\xba\xe3\x80\x82(\xe6\x9d\xa5\xe8\x87\xb310692853350761)</br>']
+2019-03-11 12:42:10,470 - DY - DEBUG - 验证码字符串截取：812052，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-11 12:42:10,470 - DY - DEBUG - 验证码获取成功：812052
+2019-03-11 12:42:10,470 - DY - DEBUG - 收到验证码为：812052
+2019-03-11 12:42:10,470 - DY - DEBUG - phone:15142076947,code:812052,pwd:33oTyuZN
+2019-03-11 12:42:12,118 - DY - DEBUG - 已输入验证码
+2019-03-11 12:42:14,091 - DY - DEBUG - 等待3秒，查询注册登陆成功
+2019-03-11 12:42:26,453 - DY - INFO - user info url:https://www.douyu.com/member/cp
+2019-03-11 12:42:26,453 - DY - DEBUG - 元素已找到，登陆成功
+2019-03-11 12:42:26,453 - DY - INFO - 注册成功
+2019-03-11 12:42:32,789 - DY - INFO - nickname:672461
+
+2019-03-11 12:42:32,789 - DY - INFO - nickname len:7
+2019-03-11 12:42:32,789 - DY - DEBUG - nickname:672461
+,phone:15142076947, pwd:33oTyuZN, cooike:None
+2019-03-11 12:42:40,282 - DY - INFO - reg acc direct save to file
+2019-03-11 12:42:40,282 - DY - INFO - SaveAccountToFile: acc2019-03-11.txt
+2019-03-11 12:42:40,286 - DY - DEBUG - 账号写入文件：672461
+|33oTyuZN|None
+2019-03-11 12:50:23,085 - DY - DEBUG - {'ck': 'CK.txt', 'LCD1920x1080': {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}, 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'LCD1440x900': {'geetestRightDn': {'y': 554, 'x': 1249}, 'inputCode': {'y': 405, 'x': 990, 't': 1}, 'register': {'y': 477, 'x': 1130, 't': 0.6}, 'geetestLeftUp': {'y': 289, 'x': 990}, 'codeValidate': {'y': 400, 'x': 1222, 't': 1}, 'url': {'y': 81, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 340, 'x': 567, 't': 1}, 'goonReg': {'y': 450, 'x': 665, 't': 1}, 'copyNicknameEnd': {'y': 340, 'x': 687, 't': 2}, 'pwd': {'y': 349, 'x': 1010, 't': 1}, 'close': {'y': 45, 'x': 20, 't': 2}, 'nickname': {'y': 290, 'x': 1090, 't': 1}, 'dragSlider': {'y': 473, 'x': 1024, 't': 1}}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': True, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'up': 'upck.txt', 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'acc': 'acc.txt', 'usedati': True, 'LCD1280x800': {'geetestRightDn': {'y': 554, 'x': 1162}, 'inputCode': {'y': 405, 'x': 910, 't': 1}, 'register': {'y': 477, 'x': 1030, 't': 0.6}, 'geetestLeftUp': {'y': 289, 'x': 903}, 'codeValidate': {'y': 400, 'x': 1130, 't': 1}, 'url': {'y': 81, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 340, 'x': 479, 't': 1}, 'goonReg': {'y': 435, 'x': 575, 't': 1}, 'copyNicknameEnd': {'y': 339, 'x': 600, 't': 1}, 'pwd': {'y': 349, 'x': 918, 't': 1}, 'close': {'y': 45, 'x': 20, 't': 2}, 'nickname': {'y': 290, 'x': 1005, 't': 1}, 'dragSlider': {'y': 473, 'x': 936, 't': 1}}, 'usefirecloud': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'upload': False, 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-11 12:50:38,553 - DY - DEBUG - 已经登陆4G Modeml
+2019-03-11 12:50:43,118 - DY - DEBUG - 准备重启4G Modeml
+2019-03-11 12:51:24,829 - DY - DEBUG - 重启4G Model完成
+2019-03-11 12:51:24,908 - DY - INFO - 产生随机密码：piGDV0pL
+2019-03-11 12:51:24,940 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-11 12:51:32,661 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-11 12:51:40,897 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:51:40,897 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-11 12:51:40,897 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:51:40,898 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-11 12:51:40,898 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-11 12:51:41,177 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:51:41,177 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-11 12:51:41,177 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:51:41,178 - DY - DEBUG - 返回内容：1|15241793461|辽宁 沈阳
+2019-03-11 12:51:41,178 - DY - DEBUG - ['1', '15241793461', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-11 12:51:42,549 - DY - DEBUG - 已输入phone number
+2019-03-11 12:51:44,078 - DY - DEBUG - 已输入密码
+2019-03-11 12:51:47,545 - DY - DEBUG - 已经点击短信验证
+2019-03-11 12:51:47,546 - DY - INFO - 2019-03-11 12:51:47
+2019-03-11 12:51:47,546 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-11 12:51:49,555 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:51:49,555 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:51:50,640 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-11 12:51:50,733 - DY - INFO - captcha1.png size: 0KB
+2019-03-11 12:51:50,733 - DY - INFO - png size < 75KB
+2019-03-11 12:51:50,733 - DY - DEBUG - 没有验证码，直接获取短信验证码
+2019-03-11 12:51:50,733 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-11 12:52:14,426 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:52:14,426 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15241793461
+2019-03-11 12:52:14,426 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:52:14,426 - DY - DEBUG - 0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:52:14,426 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:52:14,426 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:52:14,426 - DY - DEBUG - ['0', '\xe8\xbf\x98\xe6\xb2\xa1\xe6\x9c\x89\xe6\x8e\xa5\xe6\x94\xb6\xe5\x88\xb0\xe7\x9f\xad\xe4\xbf\xa1\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbf\x873\xe7\xa7\x92\xe5\x86\x8d\xe8\xaf\x95\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\xbb\xe5\x8a\xa83\xe7\xa7\x92\xe5\x86\x8d\xe9\x87\x8d\xe6\x96\xb0\xe5\x8f\x96\xe7\x9f\xad\xe4\xbf\xa1\xe5\x86\x85\xe5\xae\xb9\xe3\x80\x82']
+2019-03-11 12:52:14,426 - DY - ERROR - 还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:52:14,426 - DY - ERROR - 获取短信失败
+2019-03-11 12:52:14,426 - DY - INFO - 释放号码
+2019-03-11 12:52:14,647 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:52:14,647 - DY - DEBUG - 命令字: action=cancelRecv&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15241793461
+2019-03-11 12:52:14,647 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:52:14,647 - DY - DEBUG - 1|操作成功
+2019-03-11 12:52:14,647 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-11 12:52:14,647 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-11 12:52:14,647 - DY - DEBUG - ['1', '\xe6\x93\x8d\xe4\xbd\x9c\xe6\x88\x90\xe5\x8a\x9f']
+2019-03-11 12:52:14,647 - DY - INFO - 成功释放
+2019-03-11 12:52:22,252 - DY - INFO - 产生随机密码：7NEzRmrj
+2019-03-11 12:52:22,252 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-11 12:52:27,956 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-11 12:52:36,092 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:52:36,094 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-11 12:52:36,094 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:52:36,094 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-11 12:52:36,095 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-11 12:52:36,749 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:52:36,749 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-11 12:52:36,749 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:52:36,749 - DY - DEBUG - 返回内容：1|15142066347|辽宁 沈阳
+2019-03-11 12:52:36,749 - DY - DEBUG - ['1', '15142066347', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-11 12:52:38,232 - DY - DEBUG - 已输入phone number
+2019-03-11 12:52:39,625 - DY - DEBUG - 已输入密码
+2019-03-11 12:52:43,003 - DY - DEBUG - 已经点击短信验证
+2019-03-11 12:52:43,003 - DY - INFO - 2019-03-11 12:52:43
+2019-03-11 12:52:43,003 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-11 12:52:45,009 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:52:45,009 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:52:45,993 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-11 12:52:46,086 - DY - INFO - captcha1.png size: 0KB
+2019-03-11 12:52:46,086 - DY - INFO - png size < 75KB
+2019-03-11 12:52:46,086 - DY - DEBUG - 没有验证码，直接获取短信验证码
+2019-03-11 12:52:46,086 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-11 12:53:09,661 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:53:09,661 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142066347
+2019-03-11 12:53:09,661 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:53:09,661 - DY - DEBUG - 0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:53:09,661 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:53:09,661 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:53:09,661 - DY - DEBUG - ['0', '\xe8\xbf\x98\xe6\xb2\xa1\xe6\x9c\x89\xe6\x8e\xa5\xe6\x94\xb6\xe5\x88\xb0\xe7\x9f\xad\xe4\xbf\xa1\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbf\x873\xe7\xa7\x92\xe5\x86\x8d\xe8\xaf\x95\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\xbb\xe5\x8a\xa83\xe7\xa7\x92\xe5\x86\x8d\xe9\x87\x8d\xe6\x96\xb0\xe5\x8f\x96\xe7\x9f\xad\xe4\xbf\xa1\xe5\x86\x85\xe5\xae\xb9\xe3\x80\x82']
+2019-03-11 12:53:09,661 - DY - ERROR - 还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 12:53:09,661 - DY - ERROR - 获取短信失败
+2019-03-11 12:53:09,661 - DY - INFO - 释放号码
+2019-03-11 12:53:10,569 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:53:10,569 - DY - DEBUG - 命令字: action=cancelRecv&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142066347
+2019-03-11 12:53:10,569 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:53:10,569 - DY - DEBUG - 1|操作成功
+2019-03-11 12:53:10,569 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-11 12:53:10,569 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-11 12:53:10,569 - DY - DEBUG - ['1', '\xe6\x93\x8d\xe4\xbd\x9c\xe6\x88\x90\xe5\x8a\x9f']
+2019-03-11 12:53:10,569 - DY - INFO - 成功释放
+2019-03-11 12:53:18,161 - DY - INFO - 产生随机密码：wLnJ7w81
+2019-03-11 12:53:18,161 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-11 12:53:23,937 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-11 12:53:32,055 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:53:32,056 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-11 12:53:32,056 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:53:32,056 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-11 12:53:32,058 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-11 12:53:32,627 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:53:32,627 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-11 12:53:32,627 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:53:32,627 - DY - DEBUG - 返回内容：1|15142509245|辽宁 沈阳
+2019-03-11 12:53:32,627 - DY - DEBUG - ['1', '15142509245', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-11 12:53:34,148 - DY - DEBUG - 已输入phone number
+2019-03-11 12:53:35,546 - DY - DEBUG - 已输入密码
+2019-03-11 12:53:38,951 - DY - DEBUG - 已经点击短信验证
+2019-03-11 12:53:38,953 - DY - INFO - 2019-03-11 12:53:38
+2019-03-11 12:53:38,953 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-11 12:53:40,959 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:53:40,959 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 12:53:41,898 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-11 12:53:41,993 - DY - INFO - captcha1.png size: 0KB
+2019-03-11 12:53:41,993 - DY - INFO - png size < 75KB
+2019-03-11 12:53:41,993 - DY - DEBUG - 没有验证码，直接获取短信验证码
+2019-03-11 12:53:41,993 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-11 12:54:05,494 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 12:54:05,494 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142509245
+2019-03-11 12:54:05,494 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 12:54:05,494 - DY - DEBUG - 1|【斗鱼直播】验证码：678117，本验证码有效时间5分钟，请勿告知他人。(来至10692355317596)</br>
+2019-03-11 12:54:05,494 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：678117，本验证码有效时间5分钟，请勿告知他人。(来至10692355317596)</br>
+2019-03-11 12:54:05,494 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：678117，本验证码有效时间5分钟，请勿告知他人。(来至10692355317596)</br>
+2019-03-11 12:54:05,494 - DY - DEBUG - ['1', '\xe3\x80\x90\xe6\x96\x97\xe9\xb1\xbc\xe7\x9b\xb4\xe6\x92\xad\xe3\x80\x91\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xef\xbc\x9a678117\xef\xbc\x8c\xe6\x9c\xac\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xe6\x9c\x89\xe6\x95\x88\xe6\x97\xb6\xe9\x97\xb45\xe5\x88\x86\xe9\x92\x9f\xef\xbc\x8c\xe8\xaf\xb7\xe5\x8b\xbf\xe5\x91\x8a\xe7\x9f\xa5\xe4\xbb\x96\xe4\xba\xba\xe3\x80\x82(\xe6\x9d\xa5\xe8\x87\xb310692355317596)</br>']
+2019-03-11 12:54:05,494 - DY - DEBUG - 验证码字符串截取：678117，本验证码有效时间5分钟，请勿告知他人。(来至10692355317596)</br>
+2019-03-11 12:54:05,494 - DY - DEBUG - 验证码获取成功：678117
+2019-03-11 12:54:05,494 - DY - DEBUG - 收到验证码为：678117
+2019-03-11 12:54:05,494 - DY - DEBUG - phone:15142509245,code:678117,pwd:wLnJ7w81
+2019-03-11 12:54:07,115 - DY - DEBUG - 已输入验证码
+2019-03-11 12:54:09,115 - DY - DEBUG - 等待3秒，查询注册登陆成功
+2019-03-11 12:54:21,473 - DY - INFO - user info url:https://www.douyu.com/member/cp
+2019-03-11 12:54:21,476 - DY - DEBUG - 元素已找到，登陆成功
+2019-03-11 12:54:21,476 - DY - INFO - 注册成功
+2019-03-11 12:54:27,828 - DY - INFO - nickname:用户77859999
+
+2019-03-11 12:54:27,828 - DY - INFO - nickname len:11
+2019-03-11 12:54:27,828 - DY - DEBUG - nickname:用户77859999
+,phone:15142509245, pwd:wLnJ7w81, cooike:None
+2019-03-11 12:54:35,220 - DY - INFO - reg acc direct save to file
+2019-03-11 12:54:35,220 - DY - INFO - SaveAccountToFile: acc2019-03-11.txt
+2019-03-11 12:54:35,236 - DY - DEBUG - 账号写入文件：用户77859999
+|wLnJ7w81|None
+2019-03-11 14:38:41,628 - DY - DEBUG - {'ck': 'CK.txt', 'LCD1920x1080': {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}, 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'LCD1440x900': {'geetestRightDn': {'y': 554, 'x': 1249}, 'inputCode': {'y': 405, 'x': 990, 't': 1}, 'register': {'y': 477, 'x': 1130, 't': 0.6}, 'geetestLeftUp': {'y': 289, 'x': 990}, 'codeValidate': {'y': 400, 'x': 1222, 't': 1}, 'url': {'y': 81, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 340, 'x': 567, 't': 1}, 'goonReg': {'y': 450, 'x': 665, 't': 1}, 'copyNicknameEnd': {'y': 340, 'x': 687, 't': 2}, 'pwd': {'y': 349, 'x': 1010, 't': 1}, 'close': {'y': 45, 'x': 20, 't': 2}, 'nickname': {'y': 290, 'x': 1090, 't': 1}, 'dragSlider': {'y': 473, 'x': 1024, 't': 1}}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': True, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'up': 'upck.txt', 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'acc': 'acc.txt', 'usedati': True, 'LCD1280x800': {'geetestRightDn': {'y': 554, 'x': 1162}, 'inputCode': {'y': 405, 'x': 910, 't': 1}, 'register': {'y': 477, 'x': 1030, 't': 0.6}, 'geetestLeftUp': {'y': 289, 'x': 903}, 'codeValidate': {'y': 400, 'x': 1130, 't': 1}, 'url': {'y': 81, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 340, 'x': 479, 't': 1}, 'goonReg': {'y': 435, 'x': 575, 't': 1}, 'copyNicknameEnd': {'y': 339, 'x': 600, 't': 1}, 'pwd': {'y': 349, 'x': 918, 't': 1}, 'close': {'y': 45, 'x': 20, 't': 2}, 'nickname': {'y': 290, 'x': 1005, 't': 1}, 'dragSlider': {'y': 473, 'x': 936, 't': 1}}, 'usefirecloud': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'upload': False, 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-11 14:39:05,134 - DY - DEBUG - 已经登陆4G Modeml
+2019-03-11 14:39:09,729 - DY - DEBUG - 准备重启4G Modeml
+2019-03-11 14:39:51,680 - DY - DEBUG - 重启4G Model完成
+2019-03-11 14:39:53,762 - DY - INFO - 产生随机密码：QiFj7E3J
+2019-03-11 14:39:53,762 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-11 14:40:02,075 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-11 14:40:08,153 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 14:40:08,153 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-11 14:40:08,154 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 14:40:08,155 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-11 14:40:08,155 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-11 14:40:08,305 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 14:40:08,305 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-11 14:40:08,305 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 14:40:08,305 - DY - DEBUG - 返回内容：1|15142500947|辽宁 沈阳
+2019-03-11 14:40:08,306 - DY - DEBUG - ['1', '15142500947', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-11 14:40:09,667 - DY - DEBUG - 已输入phone number
+2019-03-11 14:40:11,051 - DY - DEBUG - 已输入密码
+2019-03-11 14:40:14,368 - DY - DEBUG - 已经点击短信验证
+2019-03-11 14:40:14,368 - DY - INFO - 2019-03-11 14:40:14
+2019-03-11 14:40:14,371 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-11 14:40:16,377 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 14:40:16,377 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 14:40:17,559 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-11 14:40:17,653 - DY - INFO - captcha1.png size: 0KB
+2019-03-11 14:40:17,653 - DY - INFO - png size < 75KB
+2019-03-11 14:40:17,668 - DY - DEBUG - 没有验证码，直接获取短信验证码
+2019-03-11 14:40:17,668 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-11 14:40:41,220 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 14:40:41,220 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142500947
+2019-03-11 14:40:41,220 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 14:40:41,220 - DY - DEBUG - 0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 14:40:41,220 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 14:40:41,220 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 14:40:41,220 - DY - DEBUG - ['0', '\xe8\xbf\x98\xe6\xb2\xa1\xe6\x9c\x89\xe6\x8e\xa5\xe6\x94\xb6\xe5\x88\xb0\xe7\x9f\xad\xe4\xbf\xa1\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbf\x873\xe7\xa7\x92\xe5\x86\x8d\xe8\xaf\x95\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\xbb\xe5\x8a\xa83\xe7\xa7\x92\xe5\x86\x8d\xe9\x87\x8d\xe6\x96\xb0\xe5\x8f\x96\xe7\x9f\xad\xe4\xbf\xa1\xe5\x86\x85\xe5\xae\xb9\xe3\x80\x82']
+2019-03-11 14:40:41,220 - DY - ERROR - 还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-11 14:40:41,220 - DY - ERROR - 获取短信失败
+2019-03-11 14:40:41,220 - DY - INFO - 释放号码
+2019-03-11 14:40:41,361 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 14:40:41,361 - DY - DEBUG - 命令字: action=cancelRecv&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142500947
+2019-03-11 14:40:41,361 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 14:40:41,361 - DY - DEBUG - 1|操作成功
+2019-03-11 14:40:41,361 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-11 14:40:41,361 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-11 14:40:41,361 - DY - DEBUG - ['1', '\xe6\x93\x8d\xe4\xbd\x9c\xe6\x88\x90\xe5\x8a\x9f']
+2019-03-11 14:40:41,361 - DY - INFO - 成功释放
+2019-03-11 14:40:48,963 - DY - INFO - 产生随机密码：AvHHk9Ry
+2019-03-11 14:40:48,963 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-11 14:40:54,605 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-11 14:40:59,698 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 14:40:59,700 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-11 14:40:59,700 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 14:40:59,700 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-11 14:40:59,700 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-11 14:41:02,881 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 14:41:02,882 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-11 14:41:02,882 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 14:41:02,882 - DY - DEBUG - 返回内容：1|15140268541|辽宁 沈阳
+2019-03-11 14:41:02,882 - DY - DEBUG - ['1', '15140268541', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-11 14:41:04,239 - DY - DEBUG - 已输入phone number
+2019-03-11 14:41:05,602 - DY - DEBUG - 已输入密码
+2019-03-11 14:41:08,967 - DY - DEBUG - 已经点击短信验证
+2019-03-11 14:41:08,970 - DY - INFO - 2019-03-11 14:41:08
+2019-03-11 14:41:08,971 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-11 14:41:10,973 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 14:41:10,973 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-11 14:41:12,088 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-11 14:41:12,197 - DY - INFO - captcha1.png size: 0KB
+2019-03-11 14:41:12,197 - DY - INFO - png size < 75KB
+2019-03-11 14:41:12,197 - DY - DEBUG - 没有验证码，直接获取短信验证码
+2019-03-11 14:41:12,197 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-11 14:41:35,714 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-11 14:41:35,714 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15140268541
+2019-03-11 14:41:35,714 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-11 14:41:35,714 - DY - DEBUG - 1|【斗鱼直播】验证码：765310，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-11 14:41:35,714 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：765310，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-11 14:41:35,714 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：765310，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-11 14:41:35,714 - DY - DEBUG - ['1', '\xe3\x80\x90\xe6\x96\x97\xe9\xb1\xbc\xe7\x9b\xb4\xe6\x92\xad\xe3\x80\x91\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xef\xbc\x9a765310\xef\xbc\x8c\xe6\x9c\xac\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xe6\x9c\x89\xe6\x95\x88\xe6\x97\xb6\xe9\x97\xb45\xe5\x88\x86\xe9\x92\x9f\xef\xbc\x8c\xe8\xaf\xb7\xe5\x8b\xbf\xe5\x91\x8a\xe7\x9f\xa5\xe4\xbb\x96\xe4\xba\xba\xe3\x80\x82(\xe6\x9d\xa5\xe8\x87\xb310692853350761)</br>']
+2019-03-11 14:41:35,714 - DY - DEBUG - 验证码字符串截取：765310，本验证码有效时间5分钟，请勿告知他人。(来至10692853350761)</br>
+2019-03-11 14:41:35,714 - DY - DEBUG - 验证码获取成功：765310
+2019-03-11 14:41:35,714 - DY - DEBUG - 收到验证码为：765310
+2019-03-11 14:41:35,714 - DY - DEBUG - phone:15140268541,code:765310,pwd:AvHHk9Ry
+2019-03-11 14:41:37,178 - DY - DEBUG - 已输入验证码
+2019-03-11 14:41:39,158 - DY - DEBUG - 等待3秒，查询注册登陆成功
+2019-03-11 14:41:51,509 - DY - INFO - user info url:https://www.douyu.com/member/cp
+2019-03-11 14:41:51,513 - DY - DEBUG - 元素已找到，登陆成功
+2019-03-11 14:41:51,513 - DY - INFO - 注册成功
+2019-03-11 14:41:57,851 - DY - INFO - nickname:用户67446975
+2019-03-11 14:41:57,851 - DY - INFO - nickname len:10
+2019-03-11 14:41:57,851 - DY - DEBUG - nickname:用户67446975,phone:15140268541, pwd:AvHHk9Ry, cooike:None
+2019-03-11 14:42:05,198 - DY - INFO - reg acc direct save to file
+2019-03-11 14:42:05,198 - DY - INFO - SaveAccountToFile: acc2019-03-11.txt
+2019-03-11 14:42:05,198 - DY - DEBUG - 账号写入文件：用户67446975|AvHHk9Ry|None

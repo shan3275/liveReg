@@ -1,0 +1,102 @@
+2019-03-12 15:34:37,917 - DY - DEBUG - {'ck': 'CK.txt', 'LCD1920x1080': {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'copyCookie': {'y': 80, 'x': 1623, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'editCookie': {'y': 52, 'x': 1819, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}, 'jiema': {'pwd': 'a1450905541', 'user': 'duanzu145090'}, 'LCD1440x900': {'geetestRightDn': {'y': 554, 'x': 1249}, 'inputCode': {'y': 405, 'x': 990, 't': 1}, 'register': {'y': 477, 'x': 1130, 't': 0.6}, 'geetestLeftUp': {'y': 289, 'x': 990}, 'codeValidate': {'y': 400, 'x': 1222, 't': 1}, 'copyCookie': {'y': 112, 'x': 1160, 't': 1}, 'url': {'y': 81, 'x': 265, 't': 1}, 'nickname': {'y': 290, 'x': 1090, 't': 1}, 'copyNicknameBegin': {'y': 340, 'x': 567, 't': 1}, 'goonReg': {'y': 450, 'x': 665, 't': 1}, 'copyNicknameEnd': {'y': 340, 'x': 687, 't': 2}, 'pwd': {'y': 349, 'x': 1010, 't': 1}, 'close': {'y': 45, 'x': 20, 't': 2}, 'editCookie': {'y': 85, 'x': 1340, 't': 1}, 'dragSlider': {'y': 473, 'x': 1024, 't': 1}}, 'firecloud': {'pwd': 'd1ruSRiN85ZSDo2srA', 'user': 'kstr2019'}, 'jsyzm': {'pwd': 'RkuTQszg4JXzrUVX', 'user': 'kstr'}, 'e8372h': True, 'jsdati': {'pwd': 'p2q8uHri9Z4NaVs', 'user': 'a707399420'}, 'up': 'upck.txt', 'jiyan': {'pwd': 'STR@1234', 'user': 164515366}, 'acc': 'acc.txt', 'usedati': True, 'LCD1280x800': {'geetestRightDn': {'y': 554, 'x': 1162}, 'inputCode': {'y': 405, 'x': 910, 't': 1}, 'register': {'y': 477, 'x': 1030, 't': 0.6}, 'geetestLeftUp': {'y': 289, 'x': 903}, 'codeValidate': {'y': 400, 'x': 1130, 't': 1}, 'copyCookie': {'y': 115, 'x': 985, 't': 1}, 'url': {'y': 81, 'x': 265, 't': 1}, 'nickname': {'y': 290, 'x': 1005, 't': 1}, 'copyNicknameBegin': {'y': 340, 'x': 479, 't': 1}, 'goonReg': {'y': 435, 'x': 575, 't': 1}, 'copyNicknameEnd': {'y': 339, 'x': 600, 't': 1}, 'pwd': {'y': 349, 'x': 918, 't': 1}, 'close': {'y': 45, 'x': 20, 't': 2}, 'editCookie': {'y': 82, 'x': 1180, 't': 1}, 'dragSlider': {'y': 473, 'x': 936, 't': 1}}, 'usefirecloud': True, 'tmp': {'validate': '', 'challenge': ''}, 'douyulogintest': True, 'dyconsole': {'url': 'http://127.0.0.1:8889/strapi/http.do'}, 'rebootNum': 10, 'upload': False, 'accupdate': False, 'status': 'R', 'useyzm': False, 'accreg': False}
+2019-03-12 15:34:56,075 - DY - INFO - 产生随机密码：1BWvOaoL
+2019-03-12 15:34:56,075 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'copyCookie': {'y': 80, 'x': 1623, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'editCookie': {'y': 52, 'x': 1819, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-12 15:35:02,433 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-12 15:35:07,588 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-12 15:35:07,588 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-12 15:35:07,588 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-12 15:35:07,588 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-12 15:35:07,588 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-12 15:35:07,697 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-12 15:35:07,697 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-12 15:35:07,697 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-12 15:35:07,697 - DY - DEBUG - 返回内容：1|15142549492|辽宁 沈阳
+2019-03-12 15:35:07,697 - DY - DEBUG - ['1', '15142549492', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-12 15:35:09,604 - DY - DEBUG - 已输入phone number
+2019-03-12 15:35:11,168 - DY - DEBUG - 已输入密码
+2019-03-12 15:35:14,671 - DY - DEBUG - 已经点击短信验证
+2019-03-12 15:35:14,671 - DY - INFO - 2019-03-12 15:35:14
+2019-03-12 15:35:14,673 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-12 15:35:16,684 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-12 15:35:16,684 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-12 15:35:18,296 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-12 15:35:18,453 - DY - INFO - png\20190312153456.png size: 7KB
+2019-03-12 15:35:18,453 - DY - INFO - png size < 30KB
+2019-03-12 15:35:18,453 - DY - DEBUG - 没有验证码，直接获取短信验证码
+2019-03-12 15:35:18,453 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-12 15:35:41,970 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-12 15:35:41,970 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142549492
+2019-03-12 15:35:41,970 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-12 15:35:41,970 - DY - DEBUG - 0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-12 15:35:41,970 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-12 15:35:41,970 - DY - DEBUG - 返回内容：0|还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-12 15:35:41,970 - DY - DEBUG - ['0', '\xe8\xbf\x98\xe6\xb2\xa1\xe6\x9c\x89\xe6\x8e\xa5\xe6\x94\xb6\xe5\x88\xb0\xe7\x9f\xad\xe4\xbf\xa1\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbf\x873\xe7\xa7\x92\xe5\x86\x8d\xe8\xaf\x95\xef\xbc\x8c\xe8\xaf\xb7\xe8\xbd\xaf\xe4\xbb\xb6\xe4\xb8\xbb\xe5\x8a\xa83\xe7\xa7\x92\xe5\x86\x8d\xe9\x87\x8d\xe6\x96\xb0\xe5\x8f\x96\xe7\x9f\xad\xe4\xbf\xa1\xe5\x86\x85\xe5\xae\xb9\xe3\x80\x82']
+2019-03-12 15:35:41,970 - DY - ERROR - 还没有接收到短信，请过3秒再试，请软件主动3秒再重新取短信内容。
+2019-03-12 15:35:41,970 - DY - ERROR - 获取短信失败
+2019-03-12 15:35:41,970 - DY - INFO - 释放号码
+2019-03-12 15:35:45,138 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-12 15:35:45,138 - DY - DEBUG - 命令字: action=cancelRecv&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142549492
+2019-03-12 15:35:45,138 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-12 15:35:45,138 - DY - DEBUG - 1|操作成功
+2019-03-12 15:35:45,138 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-12 15:35:45,138 - DY - DEBUG - 返回内容：1|操作成功
+2019-03-12 15:35:45,138 - DY - DEBUG - ['1', '\xe6\x93\x8d\xe4\xbd\x9c\xe6\x88\x90\xe5\x8a\x9f']
+2019-03-12 15:35:45,138 - DY - INFO - 成功释放
+2019-03-12 15:35:56,750 - DY - INFO - 产生随机密码：0wc7GiVg
+2019-03-12 15:35:56,750 - DY - INFO - {'geetestRightDn': {'y': 522, 'x': 1482}, 'inputCode': {'y': 369, 'x': 1220, 't': 1}, 'register': {'y': 443, 'x': 1340, 't': 0.6}, 'geetestLeftUp': {'y': 255, 'x': 1223}, 'codeValidate': {'y': 365, 'x': 1445, 't': 1}, 'copyCookie': {'y': 80, 'x': 1623, 't': 1}, 'url': {'y': 50, 'x': 265, 't': 1}, 'nickname': {'y': 258, 'x': 1331, 't': 1}, 'copyNicknameBegin': {'y': 307, 'x': 798, 't': 1}, 'goonReg': {'y': 505, 'x': 894, 't': 1}, 'copyNicknameEnd': {'y': 307, 'x': 910, 't': 1}, 'pwd': {'y': 315, 'x': 1240, 't': 1}, 'close': {'y': 4, 'x': 1895, 't': 2}, 'editCookie': {'y': 52, 'x': 1819, 't': 1}, 'dragSlider': {'y': 439, 'x': 1255, 't': 1}}
+2019-03-12 15:36:02,607 - DY - DEBUG - 已经打开页面:https://passport.douyu.com/member/regNew?client_id=1&lang=cn&state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp
+2019-03-12 15:36:07,677 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-12 15:36:07,677 - DY - DEBUG - 命令字: action=loginIn&name=kstr2019&password=d1ruSRiN85ZSDo2srA
+2019-03-12 15:36:07,677 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-12 15:36:07,677 - DY - DEBUG - 返回内容：1|3d21649d8e966e91ca8acfb4d66b66f0
+2019-03-12 15:36:07,677 - DY - DEBUG - ['1', '3d21649d8e966e91ca8acfb4d66b66f0']
+2019-03-12 15:36:07,819 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-12 15:36:07,819 - DY - DEBUG - 命令字: action=getPhone&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&vno=0
+2019-03-12 15:36:07,819 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-12 15:36:07,819 - DY - DEBUG - 返回内容：1|15142549492|辽宁 沈阳
+2019-03-12 15:36:07,819 - DY - DEBUG - ['1', '15142549492', '\xe8\xbe\xbd\xe5\xae\x81 \xe6\xb2\x88\xe9\x98\xb3']
+2019-03-12 15:36:09,411 - DY - DEBUG - 已输入phone number
+2019-03-12 15:36:11,000 - DY - DEBUG - 已输入密码
+2019-03-12 15:36:14,494 - DY - DEBUG - 已经点击短信验证
+2019-03-12 15:36:14,496 - DY - INFO - 2019-03-12 15:36:14
+2019-03-12 15:36:14,497 - DY - DEBUG - 等待2秒查询是否已经加载验证码
+2019-03-12 15:36:16,510 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-12 15:36:16,510 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-12 15:36:17,706 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-12 15:36:17,815 - DY - INFO - png\20190312153556.png size: 47KB
+2019-03-12 15:36:17,815 - DY - INFO - png size > 30KB
+2019-03-12 15:36:17,815 - DY - DEBUG - 已经加载了验证码，保存验证码
+2019-03-12 15:36:17,815 - DY - DEBUG - 验证码图片保存成功，准备识别图片
+2019-03-12 15:36:17,815 - DY - INFO - png\20190312153556.png
+2019-03-12 15:36:17,815 - DY - INFO - {'user_pw': 'p2q8uHri9Z4NaVs', 'yzmtype_mark': '1318', 'user_name': 'a707399420'}
+2019-03-12 15:36:17,815 - DY - INFO - {'upload': <open file 'png\\20190312153556.png', mode 'rb' at 0x000000000358F540>}
+2019-03-12 15:36:18,486 - DY - DEBUG - 打码平台链接: http://v1-http-api.jsdama.com/api.php?mod=php&act=upload
+2019-03-12 15:36:18,486 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-12 15:36:18,486 - DY - DEBUG - 返回内容：{u'data': {u'id': 26517357857L, u'val': u'126,22'}, u'result': True}
+2019-03-12 15:36:18,486 - DY - DEBUG - 126,22
+2019-03-12 15:36:18,503 - DY - DEBUG - [{'y': 22, 'x': 126}]
+2019-03-12 15:36:18,503 - DY - INFO - [{'y': 22, 'x': 126}]
+2019-03-12 15:36:18,503 - DY - INFO - x: 126  y: 22
+2019-03-12 15:36:22,227 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-12 15:36:22,232 - DY - INFO - top:255,bottom:522,left:1223,right:1482
+2019-03-12 15:36:24,114 - DY - INFO - 图片分辨率(1920, 1080)
+2019-03-12 15:36:37,424 - DY - DEBUG - 等待2秒查询是否出现 继续注册 按钮
+2019-03-12 15:37:01,029 - DY - DEBUG - 接码平台链接: http://huoyun888.cn/api/do.php
+2019-03-12 15:37:01,029 - DY - DEBUG - 命令字: action=getMessage&sid=71&token=3d21649d8e966e91ca8acfb4d66b66f0&phone=15142549492
+2019-03-12 15:37:01,029 - DY - DEBUG - post 成功, r.status_code=200
+2019-03-12 15:37:01,029 - DY - DEBUG - 1|【斗鱼直播】验证码：639776，本验证码有效时间5分钟，请勿告知他人。(来至10692659317596)</br>
+2019-03-12 15:37:01,029 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：639776，本验证码有效时间5分钟，请勿告知他人。(来至10692659317596)</br>
+2019-03-12 15:37:01,029 - DY - DEBUG - 返回内容：1|【斗鱼直播】验证码：639776，本验证码有效时间5分钟，请勿告知他人。(来至10692659317596)</br>
+2019-03-12 15:37:01,029 - DY - DEBUG - ['1', '\xe3\x80\x90\xe6\x96\x97\xe9\xb1\xbc\xe7\x9b\xb4\xe6\x92\xad\xe3\x80\x91\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xef\xbc\x9a639776\xef\xbc\x8c\xe6\x9c\xac\xe9\xaa\x8c\xe8\xaf\x81\xe7\xa0\x81\xe6\x9c\x89\xe6\x95\x88\xe6\x97\xb6\xe9\x97\xb45\xe5\x88\x86\xe9\x92\x9f\xef\xbc\x8c\xe8\xaf\xb7\xe5\x8b\xbf\xe5\x91\x8a\xe7\x9f\xa5\xe4\xbb\x96\xe4\xba\xba\xe3\x80\x82(\xe6\x9d\xa5\xe8\x87\xb310692659317596)</br>']
+2019-03-12 15:37:01,029 - DY - DEBUG - 验证码字符串截取：639776，本验证码有效时间5分钟，请勿告知他人。(来至10692659317596)</br>
+2019-03-12 15:37:01,029 - DY - DEBUG - 验证码获取成功：639776
+2019-03-12 15:37:01,029 - DY - DEBUG - 收到验证码为：639776
+2019-03-12 15:37:01,029 - DY - DEBUG - phone:15142549492,code:639776,pwd:0wc7GiVg
+2019-03-12 15:37:02,634 - DY - DEBUG - 已输入验证码
+2019-03-12 15:37:04,608 - DY - DEBUG - 等待3秒，查询注册登陆成功
+2019-03-12 15:37:17,082 - DY - INFO - user info url:https://www.douyu.com/member/cp
+2019-03-12 15:37:17,082 - DY - DEBUG - 元素已找到，登陆成功
+2019-03-12 15:37:17,082 - DY - INFO - 注册成功
+2019-03-12 15:37:30,006 - DY - DEBUG - username: 用户07526073
+2019-03-12 15:37:30,006 - DY - DEBUG - <type 'str'>
+2019-03-12 15:37:30,006 - DY - DEBUG - nickname:用户07526073,phone:15142549492, pwd:0wc7GiVg, cooike:dy_did=8e36045ed9ccb286cd0c01f979231501; Hm_lpvt_e99aee90ec1b2106afe7ec3b199020a7=1552376226; Hm_lvt_e99aee90ec1b2106afe7ec3b199020a7=1552376161; smidV2=20190312153601b39bb16b4f8ad8c3ec7b7265589c99bb0015a562d29343120; wan_auth37wan=e2581773ea972SB76yegLi5ua9Y8KKuJn0lsoF81xdjwwtDlBfr6p3arYXGcXErMkKSnsuN4GAL23Fm0ZviaKDUJvgdIBkEp3erwl1%2BGZCt5MBEnIys; acf_auth=d367vYkcITmLTFB3BWI4VSxmWfiumrkzHc6g1yNDkWQ%2B8dSQd4G9I6CtJTdUaO%2B5no5jS7j5Q9yfK7gzD51kAgyvXwz9A0PXk%2FP5qPZSj%2B4M8xYAdgWo%2Bqk; acf_avatar=https%3A%2F%2Fapic.douyucdn.cn%2Fupload%2Favatar%2Fdefault%2F11_; acf_biz=1; acf_ct=0; acf_devid=b080a74175ae9ac97021b4407353e798; acf_did=8e36045ed9ccb286cd0c01f979231501; acf_groupid=1; acf_isNewUser=1; acf_ltkid=51897854; acf_nickname=%E7%94%A8%E6%88%B707526073; acf_own_room=0; acf_phonestatus=1; acf_stk=6053745f2841b660; acf_uid=275396027; acf_username=275396027; PHPSESSID=qq8e9lq5is3eoo98jd42lpb723

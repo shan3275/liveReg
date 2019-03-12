@@ -1,0 +1,3 @@
+Program restart at 14:33:57.27, pls check log 
+Program restart at 14:45:10.58, pls check log 
+Program restart at 14:45:42.09, pls check log 
