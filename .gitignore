@@ -3,3 +3,6 @@
 *.png
 *.txt
 .idea
+*.spec
+*.exe
+*.rdb
