@@ -2,7 +2,7 @@
 #-*- coding: UTF-8 -*-
 # FileName : dyconsole.py
 # Author   : Shan
-# 说明：联众识别接口
+# 说明：账号及ck上传到控制台
 # DateTime : 2019/1/11
 # SoftWare : PyCharm
 
@@ -42,6 +42,25 @@ class DYConApi():
 
     def queryOneByDate(self,day):
         data = 'action=queryOneByDate&day=' +day
+        logger.debug(data)
+        r = requests.post(self.url, data=data, headers=self.headers)
+        logger.debug('命令字: ' + data)
+        ##判断http post返回值
+        if r.status_code != requests.codes.ok:
+            logger.error('post 失败,r.status_code=%d', r.status_code)
+            return None
+        logger.debug('post 成功, r.status_code=%d', r.status_code)
+
+        responsed = r.json()
+        logger.debug('返回内容：%s', responsed)
+        if responsed['error'] == 0:
+            str = base64.b64decode(responsed['data']['acc'])
+            return str
+        else:
+            return None
+
+    def queryOneByIndex(self,index):
+        data = 'action=queryOneByIndex&index=%d' %(index)
         logger.debug(data)
         r = requests.post(self.url, data=data, headers=self.headers)
         logger.debug('命令字: ' + data)

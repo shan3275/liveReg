@@ -5,6 +5,7 @@ from logging import handlers
 import yaml
 import globalvar as gl
 def log_init(log_app_name, file_name):
+    logging.captureWarnings(True)
     logger = logging.getLogger(log_app_name)
     logger.setLevel(logging.DEBUG)
     formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')

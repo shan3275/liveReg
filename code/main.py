@@ -13,6 +13,7 @@ from urllib import urlencode
 from urllib import unquote
 from cmd import Cmd
 import time
+import threadpool
 import threading
 import base64
 import json
@@ -34,7 +35,7 @@ import firecloud     as firecloud
 
 global CONF
 global logger
-Version = "V0.1.39.ea37fd5-2019-1-16"
+Version = "V0.1.39.ea37fd5-2019-4-10"
 
 def ModemReboot():
     """
@@ -84,6 +85,29 @@ def PhoneJudge(phone):
         print("请输入正确的手机号")
         return False
     return True
+
+def PhoneFilter(phone):
+    """
+    功能：判断手机号码是否有效
+    输入参数：phone：手机号码，字符串
+    输出参数：False：无效
+             True： 有效
+    """
+    n = phone
+    logger.debug(type(n))
+    logger.info("您输入的的手机号码是：" + n)
+    if re.match(r'147\d{8}', n) :
+        logger.info('match phone:%s',n)
+        return True
+    else:
+        for ph in CONF['phoneBlackList']:
+            pattern = '%s' %(ph)
+            logger.debug(type(pattern))
+            logger.info('patter:%s', pattern)
+            if re.match(pattern, n):
+                logger.info('match phone:%s', n)
+                return True
+        return False
 
 
 def RandomPasswordGetOne():
@@ -280,12 +304,6 @@ def RegisterOneAccountV5(reset=True):
     ##第一步 产生随机密码
     pwd = RandomPasswordGetOne()
 
-    ##第二步 打开页面
-    if CONF['douyulogintest'] == True:
-        crack = douyuRegister.DouyuRegister()
-    else:
-        crack = douyuRegister.DouyuRegister()
-
     ##第一步 获取手机号码
     if CONF['useyzm'] == True:
         jm = jsyzm.JSJM()
@@ -308,6 +326,17 @@ def RegisterOneAccountV5(reset=True):
             ou['msg']   = '获取手机号码失败'
             return ou
     #print('phone: ' + phone)
+
+    #过滤号码
+    if PhoneFilter(phone) == True:
+        jm.addBlackList(phone)
+        logger.info('加黑网络号码')
+        ou['error'] = 5
+        ou['msg'] = '获取手机号码失败'
+        return ou
+
+    ##第二步 打开页面
+    crack = douyuRegister.DouyuRegister()
 
     if CONF['usedati'] != True:
         rv= crack.sendcode()
@@ -699,6 +728,223 @@ def RegisterAccount(num=2000):
         sys.stdout.flush()
         print('\n')
 
+def LoginOneAccountV4(nickname, pwd):
+    """
+    功能：使用接口登陆获取cookie
+    输入参数：nickname ：用户名
+             pwd   ：密码
+    输出参数：ou：字典，包含账号信息
+                ou['data']['nickname'] : 用户名
+                ou['data']['pwd']      : 密码
+                ou['data']['phone']    : 绑定的手机号码
+                ou['msg']      : 信息
+                ou['error']             : 0 ok
+                                        : 1 手机号码无效
+                                        : 2 获取gt和challenge失败
+                                        : 3 极验获取challenge和validate失败
+                                        : 4 验证码发送失败
+                                        : 5 获取手机号码失败
+                                        : 6 获取验证码失败
+                                        : 7 注册提交失败
+                                        : 8 登陆失败
+                                        : 9 获取验证码保存失败
+                                        : 10 验证码识别失败
+                                        : 11 获取cookie失败
+
+    """
+    ou = dict(error=0, data=dict(), msg='ok')
+    logger.info('nickname:%s, pwd:%s', nickname, pwd)
+    logger.info(len(nickname))
+    logger.info(len(pwd))
+
+    ##获取gt和challenge
+    gt = douyu.LoginCheckGeeTest()
+    if gt == False:
+        ou['error'] = 2
+        ou['msg']   = '获取gt和challenge失败'
+        return ou
+
+    for i in range(0,3):
+        validate = jiyan.JiYanDeepKnowGeetest(CONF['jiyan']['user'], CONF['jiyan']['pwd'], gt['code_data_id'])
+        if validate == False:
+            logger.info('deepKnow获取识别码validate和challenge失败, %d', i)
+            if i == 2:
+                ou['error'] = 3
+                ou['msg']   = '极验获取challenge和validate失败'
+                return ou
+            else:
+                continue
+        else:
+            break
+
+    logger.info('deepknow获取识别码validate和challenge成功')
+    logger.info('validate:%s', validate)
+    ck_url = douyu.LoginSubmitV4(nickname, pwd, validate, gt['code_type'], gt['code_token'], gt['code_data_id'])
+    if ck_url == False:
+        ou['error'] = 8
+        ou['msg']   = '登陆失败'
+        return ou
+    cookie = douyu.LoginGetCookie(ck_url)
+    if cookie == False:
+        ou['error'] = 11
+        ou['msg']   = '获取cookie失败'
+        return ou
+    ou['error'] = 0
+    ou['msg']   = 'ok'
+    ou['data']['nickname'] = nickname
+    ou['data']['pwd'] = pwd
+    ou['data']['cookie'] = cookie
+    return ou
+
+L1 = threading.Lock()
+L2 = threading.Lock()
+def LoginAccountAndWriteFileV4(acc):
+    """
+    登陆获取cookie，并写入文件
+    :param acc: dict(nickname='', pwd='')
+    :return:
+    """
+    nickname = acc['nickname']
+    pwd      = acc['pwd']
+    ou = LoginOneAccountV4(nickname, pwd)
+    if ou['error'] != 0:
+        acc_str = nickname + "----" + pwd
+        L1.acquire()
+        global Fail
+        Fail = Fail + 1
+        SaveAccountToFile(acc_str, CONF['fl'])
+        L1.release()
+    else:
+        # 成功
+        # acc_str =  ou['data']['nickname']  + "|" + ou['data']['pwd']+ "|" + format(ou['data']['validate'],"d")+"|"+ou['data']['cookie']
+        acc_str = ou['data']['nickname'] + "|" + ou['data']['pwd'] + "|" + ou['data']['cookie']
+
+        L2.acquire()
+        global Success
+        Success = Success + 1
+        SaveAccountToFile(acc_str, CONF['ck'])
+        L2.release()
+
+def DisplayLoginInfo(num):
+    """
+    实时显示获取cookie数量
+    :return:
+    """
+    global Success
+    global Fail
+    while True:
+        num_str = '%d' % (num)
+        success_str = '%d' % (Success)
+        fail_str = '%d' % (Fail)
+        result_str = 'Needs: ' + num_str + ' Success: ' + success_str + ' Fail: ' + fail_str
+        sys.stdout.write("\r{0}".format(result_str))
+        sys.stdout.flush()
+        if num == (Success+Fail):
+            print('\n')
+            logger.info('DisplayLoginInfo exit')
+            break
+        time.sleep(2)
+
+def LoginAccountV4(rebootNum, accountFile):
+    """
+    功能：批量登陆账号
+    :param  rebootNum: 多少个账号之后重启modem
+            accountFile: 账号文件，存放用户名和密码 用户名和密码一行，中间tab隔开
+    :return:
+    """
+    account = list()
+    f = open(accountFile, "r")
+    for line in f:
+        if '\xef\xbb\xbf' in line:
+            logger.info('用replace替换掉\\xef\\xbb\\xb')
+            line = line.replace('\xef\xbb\xbf', '')  # 用replace替换掉'\xef\xbb\xbf'
+        line = line.strip('\r\n')
+        str = line.split('----')
+        t = dict(nickname=str[0], pwd=str[1])
+        account.append(t)
+    f.close()
+    logger.info(account)
+    global Success
+    global Fail
+    Success = 0
+    Fail    = 0
+    t = threading.Thread(target=DisplayLoginInfo, args=( len(account), ) )
+    t.start()
+
+    index   = 0
+    while len(account) > 0:
+        #重启modem
+        if index % rebootNum == 0:
+            ModemReboot()
+
+        acc_list = list()
+        if len(account) >= rebootNum:
+            NN = rebootNum
+        else:
+            NN = len(account)
+        for i in range(0, NN):
+            acc_list.append(account.pop())
+        logger.info(acc_list)
+        pool = threadpool.ThreadPool(CONF['ThreadNum'])
+        requests = threadpool.makeRequests(LoginAccountAndWriteFileV4, acc_list)
+        [pool.putRequest(req) for req in requests]
+        pool.wait()
+        index = index + NN
+
+"""
+def LoginAccountV4(rebootNum, accountFile):
+    account = list()
+    f = open(accountFile, "r")
+    for line in f:
+        line = line.strip('\r\n')
+        str = line.split('----')
+        t = dict(nickname=str[0], pwd=str[1])
+        account.append(t)
+    f.close()
+    logger.info(account)
+
+    num = len(account)
+    success = 0
+    fail    = 0
+    index   = 0
+    while index < num:
+        num_str     = '%d' %(num)
+        success_str = '%d' %(success)
+        fail_str    = '%d' %(fail)
+        result_str = 'Needs: ' + num_str + ' Success: ' + success_str + ' Fail: ' + fail_str
+        sys.stdout.write("\r{0}".format(result_str))
+        sys.stdout.flush()
+        #重启modem
+        if index % rebootNum == 0:
+            ModemReboot()
+
+        #获取用户名和密码
+        nickname = account[index]['nickname']
+        pwd      = account[index]['pwd']
+        index = index + 1
+        ou = LoginOneAccountV4(nickname, pwd)
+        if ou['error'] != 0:
+            fail = fail + 1
+            acc_str = nickname + "----" + pwd
+            SaveAccountToFile(acc_str, CONF['fl'])
+            continue
+        #成功
+        #acc_str =  ou['data']['nickname']  + "|" + ou['data']['pwd']+ "|" + format(ou['data']['validate'],"d")+"|"+ou['data']['cookie']
+        acc_str =  ou['data']['nickname']  + "|" + ou['data']['pwd'] + "|"+ou['data']['cookie']
+        SaveAccountToFile(acc_str,CONF['ck'])
+        #自加一
+        success = success +1
+    else:
+        num_str     = '%d' %(num)
+        success_str = '%d' %(success)
+        fail_str    = '%d' %(fail)
+        result_str = 'Needs: ' + num_str + ' Success: ' + success_str + ' Fail: ' + fail_str
+        #result_str = '需求数量：' +str(num) + ' 已获取成功：' + str(success) + '失败数量：' + str(fail)
+        sys.stdout.write("\r{0}".format(result_str))
+        sys.stdout.flush()
+        print('\n')
+"""
+
 def UpdateOneAccount(day='1970-1-1'):
     """
     更新账号的cookies，自动上报到服务器。
@@ -730,7 +976,7 @@ def UpdateOneAccount(day='1970-1-1'):
     if day != '1970-1-1':
         ck = dyconsole.DYConApi().queryOneByDate(day)
     else:
-        #七天之前，过期的获取一条
+        #六天之前，过期的获取一条
         ck = dyconsole.DYConApi().queryOneOutDate()
     if ck == None:
         ou['error'] = 10
@@ -751,7 +997,7 @@ def UpdateOneAccount(day='1970-1-1'):
     pwd      = str[2]
 
     #第二步，登陆获取新的cookie
-    ac = LoginOneAccountV5(nickname,pwd)
+    ac = LoginOneAccountV4(nickname,pwd)
     if ac['error'] != 0:
         #获取cookie失败，然后更新状态到后台
         data = nickname + '|' + 'update_fail'
@@ -785,6 +1031,78 @@ def UpdateOneAccount(day='1970-1-1'):
     ou['error'] = 12
     return ou
 
+def UpdateOneAccountAndWriteDBV4(day='1970-1-1'):
+    """
+    登陆获取cookie，并写入远程数据库平台
+    :param acc: dict(nickname='', pwd='')
+    :return:
+    """
+    # 第一步，从后台取出一条
+    # 按照日期获取一条
+    global Fail
+    if day != '1970-1-1':
+        ck = dyconsole.DYConApi().queryOneByDate(day)
+    else:
+        # 六天之前，过期的获取一条
+        ck = dyconsole.DYConApi().queryOneOutDate()
+    if ck == None:
+        logger.error('根据日期获取账号表项失败')
+        L1.acquire()
+        Fail = Fail + 1
+        L1.release()
+        return
+    logger.debug(ck)
+    str = ck.split('|')
+    logger.debug(str)
+    num = int(str[0])
+    if num == 0:
+        logger.error('没有需要更新的内容')
+        L1.acquire()
+        Fail = Fail + 1
+        L1.release()
+        return
+    # 获取账号和密码
+    nickname = str[1]
+    pwd = str[2]
+
+    #第二步，登陆获取新的cookie
+    ac = LoginOneAccountV4(nickname,pwd)
+    if ac['error'] != 0:
+        #获取cookie失败，然后更新状态到后台
+        data = nickname + '|' + 'update_fail'
+        logger.debug(data)
+        if dyconsole.DYConApi().updateOne(data) == True:
+            logger.debug('账号登陆失败后,更新后台update_fail字段成功')
+
+        #失败状态如果更新失败，就把账号保存到文件中
+        #acc_str = nickname + '|' +pwd + '|' + 'update_Fail'
+        acc_str = nickname + '----' +pwd
+        SaveAccountToFile(acc_str, CONF['fl'])
+        logger.error('更新失败字段失败，保存账号到文件中')
+        L1.acquire()
+        Fail = Fail + 1
+        L1.release()
+        return
+    cookie = ac['data']['cookie']
+
+    #第三步，更新一条到后台
+    data = nickname + '|' + pwd+ '|' + cookie
+    if dyconsole.DYConApi().updateOne(data) == True:
+        logger.debug('更新账号成功')
+        L2.acquire()
+        global Success
+        Success = Success + 1
+        L2.release()
+        return
+    #更新到后台失败，就保存到文件中,需要关注
+    #SaveAccountToFile(data, CONF['up'])
+    acc_str = nickname + '----' + pwd
+    SaveAccountToFile(acc_str, CONF['fl'])
+    logger.debug('cookie更新到后台失败，保存账号到文件中')
+    L1.acquire()
+    Fail = Fail + 1
+    L1.release()
+
 def UpdateAccount(day='1970-1-1'):
     """
     更新指定某天的账号
@@ -792,34 +1110,131 @@ def UpdateAccount(day='1970-1-1'):
     :return:
     """
     index = 0
-    success = 0
-    fail    = 0
+    global Success
+    global Fail
+    Success = 0
+    Fail    = 0
+    t = threading.Thread(target=DisplayLoginInfo, args=(20000, ) )
+    t.start()
     rebootNum = int(CONF['rebootNum'])
     while True:
-        result_str = ' Success: ' + str(success) + ' Fail: ' + str(fail)
-        sys.stdout.write("\r{0}".format(result_str))
-        sys.stdout.flush()
         #重启modem
         if index % rebootNum == 0:
             ModemReboot()
-        ou = UpdateOneAccount(day)
-        error = ou['error']
-        if error == 0:
-            logger.debug('更新一条成功')
-            success = success + 1
-            continue
-        elif error ==11:
-            logger.debug('没有可以更新的了')
-            break
-        else:
-            logger.error('UpdateAccount：'+ json.dumps(ou))
-            fail = fail + 1
-            time.sleep(5)
-        index = index + 1
 
-    result_str = ' Success: ' + str(success) + ' Fail: ' + str(fail)
-    sys.stdout.write("\r{0}".format(result_str))
-    sys.stdout.flush()
+        acc_list=list()
+        for i in range(0, rebootNum):
+            acc_list.append(day)
+        logger.info(acc_list)
+        pool = threadpool.ThreadPool(CONF['ThreadNum'])
+        requests = threadpool.makeRequests(UpdateOneAccountAndWriteDBV4, acc_list)
+        [pool.putRequest(req) for req in requests]
+        pool.wait()
+
+        index = index + Success + Fail
+
+def UpdateOneAccountByIndex(index):
+    """
+    登陆获取cookie，并写入远程数据库平台
+    :param acc: dict(nickname='', pwd='')
+    :return:
+    """
+    # 第一步，从后台取出一条
+    # 按照日期获取一条
+    global Fail
+    ck = dyconsole.DYConApi().queryOneByIndex(index)
+    if ck == None:
+        logger.error('根据日期获取账号表项失败')
+        L1.acquire()
+        Fail = Fail + 1
+        L1.release()
+        return
+    logger.debug(ck)
+    str = ck.split('|')
+    logger.debug(str)
+    num = int(str[0])
+    if num == 0:
+        logger.error('没有需要更新的内容')
+        L1.acquire()
+        Fail = Fail + 1
+        L1.release()
+        return
+    # 获取账号和密码
+    nickname = str[1]
+    pwd = str[2]
+
+    #第二步，登陆获取新的cookie
+    ac = LoginOneAccountV4(nickname,pwd)
+    if ac['error'] != 0:
+        #获取cookie失败，然后更新状态到后台
+        data = nickname + '|' + 'update_fail'
+        logger.debug(data)
+        if dyconsole.DYConApi().updateOne(data) == True:
+            logger.debug('账号登陆失败后,更新后台update_fail字段成功')
+
+        #失败状态如果更新失败，就把账号保存到文件中
+        #acc_str = nickname + '|' +pwd + '|' + 'update_Fail'
+        acc_str = nickname + "----" + pwd
+        SaveAccountToFile(acc_str, CONF['fl'])
+        logger.error('更新失败字段失败，保存账号到文件中')
+        L1.acquire()
+        Fail = Fail + 1
+        L1.release()
+        return
+    cookie = ac['data']['cookie']
+
+    #第三步，更新一条到后台
+    data = nickname + '|' + pwd+ '|' + cookie
+    if dyconsole.DYConApi().updateOne(data) == True:
+        logger.debug('更新账号成功')
+        L2.acquire()
+        global Success
+        Success = Success + 1
+        L2.release()
+        return
+    #更新到后台失败，就保存到文件中,需要关注
+    #SaveAccountToFile(data, CONF['up'])
+    acc_str = nickname + "----" + pwd
+    SaveAccountToFile(acc_str, CONF['fl'])
+    logger.debug('cookie更新到后台失败，保存账号到文件中')
+    L1.acquire()
+    Fail = Fail + 1
+    L1.release()
+
+def UpdateAccountByIndex(begin, num):
+    """
+    更新账号，根据索引和数量
+    :param index:
+    :param num:
+    :return:
+    """
+    index = 0
+    global Success
+    global Fail
+    Success = 0
+    Fail    = 0
+    t = threading.Thread(target=DisplayLoginInfo, args=(num, ) )
+    t.start()
+    rebootNum = int(CONF['rebootNum'])
+    while index < num:
+        #重启modem
+        if index % rebootNum == 0:
+            ModemReboot()
+
+        if num-index >= rebootNum:
+            NN = rebootNum
+        else:
+            NN = num-index
+        acc_list=list()
+        for i in range(0, NN):
+            acc_list.append(begin+index+i)
+        logger.info(acc_list)
+        pool = threadpool.ThreadPool(CONF['ThreadNum'])
+        requests = threadpool.makeRequests(UpdateOneAccountByIndex, acc_list)
+        [pool.putRequest(req) for req in requests]
+        pool.wait()
+
+        index = index + Success + Fail
 
 def CookieLogin():
     """
@@ -1232,20 +1647,34 @@ class Cli(Cmd):
 
     ##极验平台获取极验码
     def do_v4jyvalidate(self,line):
+        if line == '':
+            print '请输入参数：nickname pwd'
+            return
+        arg = line.split()
+        if platform.system() == 'Darwin':
+            nickname = arg[0]
+        else:
+            nickname = arg[0].decode('gbk').encode()
+        pwd = arg[1]
         ##获取gt和challenge
-        gt = douyu.CheckGeeTest()
+        gt = douyu.LoginCheckGeeTest()
         if gt == False:
             print('获取数据失败')
             return
-        browserinfo = douyu.RegisterGetBrowserInfo()
-        ou = jiyan.JiYanDeepKnowGeetest(CONF['jiyan']['user'],CONF['jiyan']['pwd'],gt['code_data_id'],browserinfo)
+        ou = jiyan.JiYanDeepKnowGeetest(CONF['jiyan']['user'],CONF['jiyan']['pwd'],gt['code_data_id'])
         if ou == False:
             print('获取数据失败')
             return
         print('获取识别码validate和challenge成功')
         print(ou)
+        rv = douyu.LoginSubmitV4(nickname, pwd, ou, gt['code_type'], gt['code_token'],gt['code_data_id'])
+        if rv == False:
+            return
+        cookie = douyu.LoginGetCookie(rv)
+        print cookie
+
     def help_v4jyvalidate(self):
-        print('极验平台获取极验码')
+        print('极验平台获取极验码，输入用户名和密码')
 
     def do_v5regoneacc(self,line):
         ou = RegisterOneAccountV5(reset=False)
@@ -1291,6 +1720,40 @@ class Cli(Cmd):
         LoginAccountV5(rebootNum, filePath)
     def help_v5loginacc(self):
         print('使用浏览器，模拟登陆，获取cookie,输入参数： rebootNum filePath')
+
+    def do_v4loginoneacc(self, line):
+        if line == '':
+            print '请输入参数：nickname pwd'
+            return
+        arg = line.split()
+        if platform.system() == 'Darwin':
+            nickname = arg[0]
+        else:
+            nickname = arg[0].decode('gbk').encode()
+        pwd = arg[1]
+        ou = LoginOneAccountV4(nickname, pwd)
+        if ou['error'] == 0:
+            if platform.system() == 'Darwin':
+                print "登陆成功，昵称：" +nickname + " 密码：" +pwd + ' cookie:' + ou['data']['cookie']
+            else:
+                print "登陆成功，昵称：" +nickname.decode('gbk') + " 密码：" +pwd.decode('gbk') + ' cookie:' + ou['data']['cookie'].decode('gbk')
+        else:
+            print 'Fail：%s' % (ou['msg'])
+            return
+    def help_v4loginoneacc(self):
+        print('使用接口登陆，获取用户名,输入参数： nickname  password')
+
+    def do_v4loginacc(self, line):
+        if line == '':
+            print '请输入参数：rebootNum filePath'
+            return
+        arg = line.split()
+
+        rebootNum = int(arg[0])
+        filePath  = arg[1]
+        LoginAccountV4(rebootNum, filePath)
+    def help_v4loginacc(self):
+        print('使用接口登陆，获取cookie,输入参数： rebootNum filePath')
 
     def do_v5regacc(self,line):
         if line == '':
@@ -1402,6 +1865,19 @@ class Cli(Cmd):
     def help_updateoneacc(self):
         print('Update one Accounts cookies,若需指定日期，请输入日期参数，例如：2019-1-8')
 
+    def do_updateaccbyindex(self,line):
+        if line == '':
+            print '请输入参数：index num'
+            return
+        arg = line.split()
+
+        index = int(arg[0])
+        num   = int(arg[1])
+        UpdateAccountByIndex(index, num)
+
+    def help_updateaccbyindex(self):
+        print('Update acc,需指定 index num')
+
     def do_cklogin(self,line):
         CookieLogin()
     def help_cklogin(self):
@@ -1448,6 +1924,32 @@ class Cli(Cmd):
         print('firecloud 接码平台释放号码成功, ' + phone)
     def help_fcreleasephone(self):
         print('firecloud接码平台释放号码,执行命令时，需输入参数：手机号码')
+
+    def do_fcblackphone(self,phone):
+        if phone == '':
+            print('请输入手机号码作为参数')
+            return
+        crack = firecloud.FireCloud()
+        ou  = crack.addBlackList(phone)
+        if ou['error'] != 0:
+            print('加黑号码失败' + ou)
+            return
+        print('firecloud 接码平台加黑号码成功, ' + phone)
+    def help_fcblackphone(self):
+        print('firecloud接码平台加黑号码,执行命令时，需输入参数：手机号码')
+
+    def do_phonefilter(self,phone):
+        if phone == '':
+            print('请输入手机号码作为参数')
+            return
+
+        if PhoneFilter(phone) == True:
+            print('match')
+        else:
+            print('none match')
+    def help_phonefilter(self):
+        print('手机号码过滤测试')
+
 
 if __name__ == "__main__":
     reload(sys)

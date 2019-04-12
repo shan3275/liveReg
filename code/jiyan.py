@@ -99,16 +99,16 @@ def JiYanGeetest(para):
     logger.info(out)
     return out
 
-"""
-功能：     通过第三方平台深知接口进行极验，深知接口为最新接口
-输入参数：      user: 第三方极验平台用户名
-               pwd： 第三方极验平台密码
-               gt :  斗鱼官方的GeeTest ID，不变
-               browserinfo :斗鱼分配给客户端的ID,每次都会变化
-输出参数：  False : 失败，返回False，并有日志记录
-           challenge   : 成功，返回数据 斗鱼分配给客户端的ID,每次都会变化
-"""
-def JiYanDeepKnowGeetest(user,pwd,gt,browserinfo):
+
+def JiYanDeepKnowGeetest(user,pwd,gt):
+    """
+    功能：     通过第三方平台深知接口进行极验，深知接口为最新接口
+    输入参数：      user: 第三方极验平台用户名
+                   pwd： 第三方极验平台密码
+                   gt :  斗鱼官方的GeeTest ID，不变
+    输出参数：  False : 失败，返回False，并有日志记录
+               challenge   : 成功，返回数据 斗鱼分配给客户端的ID,每次都会变化
+    """
     ##判断点数是否足够
     GeetestInfo = dict(user=user, pwd=pwd)
     logger.info(GeetestInfo)
@@ -127,12 +127,24 @@ def JiYanDeepKnowGeetest(user,pwd,gt,browserinfo):
     payload['pass'] = pwd
     payload['referer'] = 'https://passport.douyu.com'
     payload['gt'] = gt
-    payload['browserinfo'] = browserinfo
+    payload['supportclick'] = 'ruokuai'
+    payload['supportuser']  = '707399420'
+    payload['supportpass']  = 'a5vufatcWZHYbjd'
     payload['format'] = 'utf8'
     #payload['devuser'] = '707399420'
     logger.debug(payload)
+    NETWORK_STATUS  = True
+    REQUEST_TIMEOUT = False
+    try:
+        r = requests.get("http://jiyanapishenzhi.c2567.com/shibie_shenzhi", params=payload, timeout=20)
+    except requests.exceptions.ConnectTimeout:
+        NETWORK_STATUS = False
+    except requests.exceptions.Timeout:
+        REQUEST_TIMEOUT = True
 
-    r = requests.get("http://jiyanapishenzhi.c2567.com/shibie_shenzhi", params=payload)
+    if NETWORK_STATUS == False or REQUEST_TIMEOUT == True:
+        logger.error('timeout')
+        return False
     logger.debug(r.url)
     ##判断http post返回值
     if r.status_code != requests.codes.ok:
@@ -154,8 +166,8 @@ def JiYanDeepKnowGeetest(user,pwd,gt,browserinfo):
     elif status == 'ok':
         logger.info('识别成功')
 
-    if data.has_key('challenge'):
-        return data['challenge']
+    if data.has_key('validate'):
+        return data['validate']
     logger.error('返回数据中没有challenge')
     return False
 

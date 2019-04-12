@@ -1,7 +1,8 @@
 #!/usr/bin/python
 #-*- coding: UTF-8 -*-
-# FileName : douyuRegisterTest3.py
+# FileName : douyuRegister.py
 # Author   : Shan
+#说明：douyu账号注册
 # DateTime : 2018/11/28
 # SoftWare : PyCharm
 
@@ -45,6 +46,7 @@ class DouyuRegister():
             )
         else:
             subprocess.Popen(['C:\Program Files (x86)\Google\Chrome\Application\chrome.exe', '-incognito'], shell=True)
+
         self.phone = ''
         self.pwd   = ''
         self.code  = ''

@@ -3,19 +3,26 @@
 # FileName : douyu.py
 # Author   : Shan
 import requests,json
+import urllib3
 import hashlib
+import time
+import urllib
+from collections import OrderedDict
+import urlparse
+import random
 import globalvar as gl
 global logger
-"""
-功能：     注册时从斗鱼官方服务器获取极验需要的参数
-说明：     该功能从易语言客户端拷贝过来方法，试用此接口直接获取gt和challeng
-输入参数：  无
-输出参数：  False : 失败，返回False，并有日志记录
-           ou    : 成功，返回数据字典，字典内容如下
-                ou.gt ：斗鱼官方的GeeTest ID，不变
-                ou.challenge：斗鱼分配给客户端的ID,每次都会变化
-"""
+
 def RegisterGetChallenge():
+    """
+    功能：     注册时从斗鱼官方服务器获取极验需要的参数
+    说明：     该功能从易语言客户端拷贝过来方法，试用此接口直接获取gt和challeng
+    输入参数：  无
+    输出参数：  False : 失败，返回False，并有日志记录
+               ou    : 成功，返回数据字典，字典内容如下
+                    ou.gt ：斗鱼官方的GeeTest ID，不变
+                    ou.challenge：斗鱼分配给客户端的ID,每次都会变化
+    """
     result = {}
     url = "https://passport.douyu.com/iframe/checkGeeTest"
     headers = {'Content-Type'   : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -53,17 +60,17 @@ def RegisterGetChallenge():
     logger.info(result)
     return result
 
-"""
-功能：     注册时从斗鱼官方服务器获取极验需要的参数
-说明：     该功能是在谷歌浏览器中抓取的链接，和RegisterGetChallenge()函数功能相同，但是返回信息不一样，为最新版本
-输入参数：  无
-输出参数：  False : 失败，返回False，并有日志记录
-           ou    : 成功，返回数据字典，字典内容如下
-                ou.gt ：斗鱼官方的GeeTest ID，不变
-                ou.code_token：斗鱼分配给客户端的ID,每次都会变化
-                ou.code_type : 数据类型
-"""
 def CheckGeeTest():
+    """
+    功能：     注册时从斗鱼官方服务器获取极验需要的参数
+    说明：     该功能是在谷歌浏览器中抓取的链接，和RegisterGetChallenge()函数功能相同，但是返回信息不一样，为最新版本
+    输入参数：  无
+    输出参数：  False : 失败，返回False，并有日志记录
+               ou    : 成功，返回数据字典，字典内容如下
+                    ou.gt ：斗鱼官方的GeeTest ID，不变
+                    ou.code_token：斗鱼分配给客户端的ID,每次都会变化
+                    ou.code_type : 数据类型
+    """
     result = {}
     url = "https://passport.douyu.com/iframe/checkGeeTest"
     headers = {'Content-Type'   : 'application/x-www-form-urlencoded; charset=UTF-8',
@@ -113,15 +120,16 @@ def CheckGeeTest():
     logger.info(result)
     return result
 
-"""
-功能：     登陆时从斗鱼官方服务器获取极验需要的参数
-输入参数：  无
-输出参数：  False : 失败，返回False，并有日志记录
-           ou    : 成功，返回数据字典，字典内容如下
-                ou.gt ：斗鱼官方的GeeTest ID，不变
-                ou.challenge：斗鱼分配给客户端的ID,每次都会变化
-"""
+
 def LoginGetChallenge():
+    """
+    功能：     登陆时从斗鱼官方服务器获取极验需要的参数
+    输入参数：  无
+    输出参数：  False : 失败，返回False，并有日志记录
+               ou    : 成功，返回数据字典，字典内容如下
+                    ou.gt ：斗鱼官方的GeeTest ID，不变
+                    ou.challenge：斗鱼分配给客户端的ID,每次都会变化
+    """
     result = {}
     url = "https://www.douyu.com/member/login/check_geetest_status"
     headers = {'Content-Type'   : 'application/x-www-form-urlencoded',
@@ -157,20 +165,21 @@ def LoginGetChallenge():
     result['challenge'] = rsdt['challenge']
     logger.info(result)
     return result
-"""
-功能：     注册时触发发送验证码 V3
-输入参数：  
-            phone  :手机号码,字符串
-            challenge :斗鱼平台分配给客户端的ID，字符串
-            validate  :第三方平台返回的识别号，字符串
-输出参数：  
-            0  : 成功
-            1  ：http status error
-            2  : 130018 错误
-            3  ： 其他错误
-            
-"""
+
 def RegisterSendSecurityCode(phone,challenge,validate):
+    """
+    功能：     注册时触发发送验证码 V3
+    输入参数：
+                phone  :手机号码,字符串
+                challenge :斗鱼平台分配给客户端的ID，字符串
+                validate  :第三方平台返回的识别号，字符串
+    输出参数：
+                0  : 成功
+                1  ：http status error
+                2  : 130018 错误
+                3  ： 其他错误
+
+    """
     url="https://passport.douyu.com/iframe/registerCaptcha"
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     data = "phoneNum=" + phone + "&areaCode=0086&lang=cn&geetest_challenge=" + challenge + "&geetest_validate=" + validate + \
@@ -241,23 +250,22 @@ def RegisterSecondSendSecurityCode(phone, challenge, validate):
         logger.error('发送失败')
         return 3
 
-
-"""
-功能：     注册时触发发送验证码 V4接口
-输入参数：  
-            phone  :手机号码,字符串
-            challenge :斗鱼平台分配给客户端的ID，字符串
-            code_type  :
-            code_token :
-            code_data_id: gt
-输出参数：            
-            0  : 成功
-            1  ：http status error
-            2  : 130018 错误
-            3  ： 其他错误
-
-"""
 def RegisterSendSecurityCodeV4(phone, challenge, code_type, code_token, code_data_id):
+    """
+    功能：     注册时触发发送验证码 V4接口
+    输入参数：
+                phone  :手机号码,字符串
+                challenge :斗鱼平台分配给客户端的ID，字符串
+                code_type  :
+                code_token :
+                code_data_id: gt
+    输出参数：
+                0  : 成功
+                1  ：http status error
+                2  : 130018 错误
+                3  ： 其他错误
+
+    """
     url = "https://passport.douyu.com/iframe/registerCaptcha"
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     data = "phoneNum=" + phone + "&areaCode=0086&lang=cn&room_id=0"+\
@@ -291,22 +299,23 @@ def RegisterSendSecurityCodeV4(phone, challenge, code_type, code_token, code_dat
         logger.error('发送失败')
         return 3
 
-"""
-功能：     注册时触发发送验证码，第2次发送, V4接口
-输入参数：  
-            phone  :手机号码,字符串
-            challenge :斗鱼平台分配给客户端的ID，字符串
-            code_type  :
-            code_token :
-            code_data_id: gt
-输出参数：  
-            0  : 成功
-            1  ：http status error
-            2  : 130018 错误
-            3  ： 其他错误
 
-"""
 def RegisterSecondSendSecurityCodeV4(phone, challenge, code_type, code_token, code_data_id):
+    """
+    功能：     注册时触发发送验证码，第2次发送, V4接口
+    输入参数：
+                phone  :手机号码,字符串
+                challenge :斗鱼平台分配给客户端的ID，字符串
+                code_type  :
+                code_token :
+                code_data_id: gt
+    输出参数：
+                0  : 成功
+                1  ：http status error
+                2  : 130018 错误
+                3  ： 其他错误
+
+    """
     url = "https://passport.douyu.com/iframe/registerCaptcha"
     headers = {'Content-Type': 'application/x-www-form-urlencoded'}
     data = "phoneNum=" + phone + "&areaCode=0086&lang=cn&room_id=0"+\
@@ -350,22 +359,23 @@ def get_token(md5str):
     token = m1.hexdigest()
     return token
 
-"""
-功能：     向斗鱼提交注册账号，V4版本
-输入参数：  字典，包含注册信息
-                phone  :手机号
-                code   :验证码
-                pwd    :随机密码
-                challenge  :斗鱼分配给客户端的ID
-                code_type  :
-                code_token :
-                code_data_id: gt
-输出参数：  False : 失败，返回False，并有日志记录
-           ou    : 成功，返回数据字典，字典内容如下
-                ou.url ：api接口
-                ou.nickname：用户名
-"""
+
 def RegisterSubmitV4(phone,code,pwd,challenge,code_type,code_token,code_data_id):
+    """
+    功能：     向斗鱼提交注册账号，V4版本
+    输入参数：  字典，包含注册信息
+                    phone  :手机号
+                    code   :验证码
+                    pwd    :随机密码
+                    challenge  :斗鱼分配给客户端的ID
+                    code_type  :
+                    code_token :
+                    code_data_id: gt
+    输出参数：  False : 失败，返回False，并有日志记录
+               ou    : 成功，返回数据字典，字典内容如下
+                    ou.url ：api接口
+                    ou.nickname：用户名
+    """
     epwd = get_token(pwd)
     url = "https://passport.douyu.com/iframe/register"
     headers = {'Content-Type'   : 'application/x-www-form-urlencoded; charset=UTF-8'}
@@ -405,21 +415,20 @@ def RegisterSubmitV4(phone,code,pwd,challenge,code_type,code_token,code_data_id)
     logger.error('获取数据成功')
     return responsed['data']
 
-
-"""
-功能：     向斗鱼提交注册账号
-输入参数：  字典，包含注册信息
-                phone  :手机号
-                code   :验证码
-                pwd    :随机密码
-                challenge  :斗鱼分配给客户端的ID
-                validate   :第三方极验平台返回的识别码
-输出参数：  False : 失败，返回False，并有日志记录
-           ou    : 成功，返回数据字典，字典内容如下
-                ou.url ：api接口
-                ou.nickname：用户名
-"""
 def RegisterSubmit(phone,code,pwd,challenge,validate):
+    """
+    功能：     向斗鱼提交注册账号
+    输入参数：  字典，包含注册信息
+                    phone  :手机号
+                    code   :验证码
+                    pwd    :随机密码
+                    challenge  :斗鱼分配给客户端的ID
+                    validate   :第三方极验平台返回的识别码
+    输出参数：  False : 失败，返回False，并有日志记录
+               ou    : 成功，返回数据字典，字典内容如下
+                    ou.url ：api接口
+                    ou.nickname：用户名
+    """
     epwd = get_token(pwd)
     url = "https://passport.douyu.com/iframe/register"
     headers = {'Content-Type'   : 'application/x-www-form-urlencoded; charset=UTF-8'}
@@ -459,4 +468,226 @@ def RegisterGetBrowserInfo():
     browserinfo = '1ddcS8t1orBzkaklajVhFUY5nl)2AVnT66wlRr2CPHZZBE5swQzERQwqVS2GIZO15ltGWEg)wnMlzSwrC8NjgdbvkVEsrCtLahilGQQyWiYGxK4JKmBYFJcyrcO2L13JaElKnxTTRv834ZRvMp(xJ7X(z7Qg8uXWewqfPHi2Kyr43lgwj(Ic7KRTQdPIMdJrv6XxlS3ZAAMu9xFq65vodK(DILkztN(9mjcVlXSI1Zi)uv0a0HHwuV)OqmvBs3j7iBSia7ROkpBF5r)pL)XIBd0Dqby2X7XDltZyyl37xm7uXzsBP)y7Jax47IIsGgWivMpdBTR6LDmZH7DLfybwrS1zSqMXEIaYNuCnDMvnufikZJoEEhi42PMim9Wl2RoQeMX0XpkqUwl0wj0cLHXcg5V7CEMU)cKhtNYquIba(UpHp6dHCGXvEVVhcwdpEzKxJeNRhZHaNUNMmPqxquZ3nur)YegWtiPrwEStuQ4BHDxEfxg0iCRahbK)TyQwU9WrPxTR)kONAmeqxM0hwhtUz2)x)60O5ZZHq6ucCmH8(SC(ENU7a1FyzGss41k6fKqPqFJJ4M0wybv6R4HhfiDoKZhpd2i1lNhwtDdAN6nQeJp8hai5KS3KPttMHiCt80EcjF5ZjVTuvrJaxSU3HMNOtGY0xAkcwB8xpzT)bAOmDaUiG3RxdOUM6iV3t(C0ZH7nuhTg70hr5zzRJcZvVb2Dm76iUA9i7HvCz89vi70e1HAaW39a7AspzwUz1x0ilSaBoJji0(tnPkrZ(vTHkYkGdcaSDbdwZI9FepXaN4XujjGWFlNj9PXpnwo(oD9bU8sC0LxZHclfZP2Dv1M7ILSlehJ2ibe8uaSzCNwxKhKL(tzXqBp30TlupMaH4j3)xy2n8O0Z7DA0vsT0yxYh9lMI9Yh6H1Efy4Vg4tlClNaw97qwrIhCOgR3a1s62RrduXiXhgyPL0jHNexyPxKJOK((1au883(34mGnYuRVc0IqhAltQhbBW(Ual4zPzgMfH5Lllr7qs1owx2aCvTnSXrNFZQHOeJFzuwgo7vzYguowNBJCKKkzVCXHgLVcYrqJKrG2tfyCxqDv8JqgYKfQpkqQDdSeAYiudtIy2SVkEV8xcL)DVafJxuI1JlCYgTyw1HWaDTBCAbmoXoCGQnlcqixZ0gNumjvZ2yfeeZD92lc6J9wHbwqTNKT(mEz)Qs9ui9jlYzj)o1xBqt2o1ZrokQqgt7eFX)B7eKy2hv86q59IZzEu1nAYf7VXcKvFWfEukBg1IZv(f12wTWzS9WWu8(7WO7jxpUSZPotShB9bskzExJhKyZPUgpudfsbL7VSXF5wNE6Z)2NLRouep7tESjaIxbOLQuaXC2yf8GJBNqVRjMNFYUmWJva861vJqiRjeuDiR(6YH6i8UsY10A1(SgxiJNi5GX7YxNAwKjWWlZeCV9riFfdI5xXgVRnu4vKa1GNEgRuqCTKDk(lX56H1oq1oFKsOj8qyJ)qnHsb1f8LYAL8BF4IdsTH5HPczAMhY77ItgqKT7moH5TTQo(eVm3mELd)ez4QZDmAVqzfCLIXVdwm5mU(sATkNHHHgEaJCsJdSfoCYs9I8fMRMIQbiSBl4HL928(FftiUJ4ATsIR6vRyKnwJUCk2)3AEeCK1AAlGhu453QzFSR6BtUsBE5XNCW)Uv0fYMA1vOSmjBFe65eBAPy)U1gEavx6hJN(CMXHzjth91jhMhsQL3)UHQlb3cf84Kt)dfmuxyjNQGAgB(e9zpThy23CggKhFwxll2kmNUbY4YbUEQgavwqxSwL14mTJctGZRkgRQ4kNeaGK2TF4lbU5CRi)OF8hwXE2GSNnC5odPzzFxuBkFdyE9XpiEaeoG2gMBgLMrfHYUevSJ1301k2le(EjgMM(Sk7O8ElBoT)cAxJK0BQMEsAumcBd)oLlMFDJOSzezH9yeTjgl3DSY0SJ0gkLaPurwN)XYpiHd(dp)gBRmtnl66EIqTgZFBX41llBy2FhDZKevAfrMMAeaXOXwcQ(It0y1P8UqB3gzmRdE6zBV(A8X6h4HNWJL1iNby3Nh68IklacEzJcMO6P2EKvBuAz(YrrxO9oh7WBHpLd928HGs6t3)lvSIDSheR8)YpG4w(w5yKbqsolzgf592NWDf6y6tBfbim5hAnpkfpvemX)ULm2kG1UyyDPNVn4eXIzeMWNve8ECAxGm4BK6akgJHSq40GwMUtJifKDLgw4x4o8QueGCSu82WcVpnRACNIlU0tP3YUlaW1zssJwxhFIx3ZlfxHUu4dzS8xfqgZqkZ37FwsH51VqlHI4w1lEwqrF)9FfWExVM(q(2GN9rU1cNc(kFGH7vjC7BNrykXUrNqGYmHyZjHp37DhH(VGwp1XxA9YGR3WmbxwxNlJyKuTpOgSeN4q4oGcC(cwqZpkhrJSEuR5AY5gTJHYlxTV)8c72DPeAY2FwDCVFGyAXtOJIe6BqGpJ1gog4TkqQpezlhfIETxhNIziB0wiWgtBY04Z2Un2SG8JNne7j)tpk6SuNUxH7hlXKDObfS4vANvfx(EHmeXJU9tLNsoCNwe39fV4)xaTkaXI4F2jKBGy6mh7g5aR862CuCla9H337)vIkJ)oCG30tTcNVGaDJDhWgpMJ6RIns64cKuSm9zfGCr0GNghugshgIdduNbyBJSPc68hu1psMLS4DCy1fjgIVbVJjEN)l0JbQDXjgbzlBDlv8H0AhnzigqM9AJgIMqt(DZUSky4yG5D01)dz2DXoDG5t9f)QEJp71y9pMuZNOtnQ7SRf0GCUhbyNUAMAp5mP5R6CkuGOJE1lKcg4ih80x)yEUoGy(3ArN4ah(0AluoR8gK5MhyW1dSG7yP5Rkeg6nbqgoYuuH)BrDub1be54kzD4TrXQZp(oMrigZSz0WcBKmhf3Dgq(YRHeqaRglxkHvjqZF415AhHCovJlbwjI6Ikgl7l2uaYk3SAcCkTdgn(Wmi9DnGp1r3VS4kfEKjzHifM73TQxx88yO0Y0ChZGtFSOoLCxbq9UwnivUt(KZMd9vdXDwA8KQnGqSJS)qgbtUcusI9Nz0RZDw2(T3WaD6703t(2XfRfRrpS6gq24ywUCv96VXkhnYxTXtVyYKyucGcj0bWP8ISK60iERzwmhD5m7aSEZuWR6kujOQGWar0Hax)TMQCMF894EaE15ejZaOcx4m8aWTcwTD(PneZA3L7jmxBk9m5rIryM51JX(tvNeumvC7eKSc7Ye)O2YP6wosnNkztpYCd4hh(dlHTLdqQpbtfI9w(bkuMROQKKXuS979OVfAY0Vrvjwfikbo30AnaIWW)hW56KotLOWsAuW(vpk6AaTa4PNGx8va0KSb(K4NeHC)JZJtcP9DEAc22XQw4GtkN(qfTo4RCAcldhi)GwMrGAc)gq0pUc5jP(F4aOyRzGRUE8M0Vit2s2VF8wp4otLeQcgmayodZRaf4dDpwVh96yaw46i2kcybJpoNuSh6igYfcfSWe0XoXCjpDh7TlWvu0feHbMjf)tEwTDi)DKoKmYA3t8OwxHnSL2jGoxk4(FepLGNYIsPxRBw(jTcYxa705db245d537a24b51c0f85a6163ec20d15aa5a5fa455ba78b7139897c8fd877c268bf968c2425c1d4a41842ce4e25f6817bf8427c628af5fac117241aaa59409e21e19df187fabfccfa68f36e8f8159a678ff7be77794f0f3e1c070b4a856c089bb9a18f3d243e5bde4a63cf353da792ebb9d19e9ece46cc2a88652ecc17ad'
     return browserinfo
 
+
+def LoginCheckGeeTest():
+    """
+    功能：     登录时从斗鱼官方服务器获取极验需要的参数
+    说明：     该功能是在谷歌浏览器中抓取的链接，为最新版本的登陆是需要的参数
+    输入参数：  无
+    输出参数：  False : 失败，返回False，并有日志记录
+               ou    : 成功，返回数据字典，字典内容如下
+                    ou.code_data_id ：     斗鱼官方的GeeTest ID，不变 (也就是gt)
+                    ou.code_token：斗鱼分配给客户端的ID,每次都会变化
+                    ou.code_type : 数据类型
+{
+	"error": 0,
+	"msg": "\u64cd\u4f5c\u6210\u529f",
+	"data": {
+		"code_type": 1,
+		"code_token": "d7c0e6f71545408b955b5838865daf86",
+		"code_data": {
+			"id": "9e296fca9afdfa4703b9f4bee02820af"
+		}
+	}
+}
+    """
+    result = {}
+    url = "https://passport.douyu.com/iframe/checkGeeTest"
+    headers = {'Content-Type'   : 'application/x-www-form-urlencoded; charset=UTF-8',
+               'User-Agent'     : 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36',
+               'accept'         : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8',
+               'accept-encoding': 'gzip, deflate, br',
+               'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7',
+               'referer'        : 'https://passport.douyu.com/member/login?state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp'}
+    data = "op_type=23&gt_version=v4&room_id=0"
+
+    r = requests.post(url, data=data,headers=headers,verify=False)
+    logger.debug(r.url)
+    logger.debug(data)
+    ##判断http post返回值
+    if r.status_code != requests.codes.ok:
+        logger.error('post 失败,r.status_code=%d', r.status_code)
+        return False
+    logger.debug('post 成功, r.status_code=%d', r.status_code)
+
+    responsed = r.json()
+    logger.debug(responsed)
+    ##判断返回数据标志位
+    if responsed['error'] != 0:
+        logger.error('获取数据失败 error=%d', responsed['error'])
+        return False
+    logger.debug('msg:%s', responsed['msg'])
+
+    ##判断返回数据中是否有gt和challenge
+    rsdt = responsed['data']
+    if rsdt.has_key('code_token') != True:
+        logger.error('code_token 不存在')
+        return False
+    if rsdt.has_key('code_type') != True:
+        logger.error('code_type 不存在')
+        return False
+    if rsdt.has_key('code_data') != True:
+        logger.error('code_data 不存在')
+        return False
+    code_data = rsdt['code_data']
+    if code_data.has_key('id') != True:
+        logger.error('id 也即gt 不存在')
+        return False
+
+    result['code_data_id'] = code_data['id']
+    result['code_token']   = rsdt['code_token']
+    result['code_type']    = rsdt['code_type']
+    logger.info(result)
+    return result
+
+
+def LoginSubmitV4(nickname,pwd,challenge,code_type,code_token,code_data_id):
+    """
+    功能：     向斗鱼提交注册账号，V4版本
+    输入参数：  字典，包含注册信息
+                    phone  :手机号
+                    code   :验证码
+                    pwd    :随机密码
+                    challenge  :斗鱼分配给客户端的ID
+                    code_type  :
+                    code_token :
+                    code_data_id: gt
+    输出参数：  False : 失败，返回False，并有日志记录
+               字典    : 成功，字典内容如下
+    {
+		"url": "\/\/www.douyu.com\/api\/passport\/login?code=1fffeb717a9cdb2a9faf101b7cec321d&uid=115859967&client_id=1&loginType=loginNew",
+		"isAutoReg": 0,
+		"nickname": "\u6b27\u8036\u5c71\u54e5"
+	}
+    """
+    epwd = get_token(pwd)
+    timestamp = int(round(time.time() * 1000))
+    sm_did_str = "WHJMrwNw1k%2FHrfjgCrssdSrjihhsA83SkyaB%2BiVdXgfidKonmoVg6wiSkdyrn4JNegkd0emPJe0ygtfvT%2FrvxpKAqBC1SPRntk9sEAEljDkbV44F74wfyWJSD3EmPbcN1b2GXgZ5AQVJWVaNEUT2cSKxGrBEhU9qPitL%2Fx67TT69khoMiJ81hY22f%2FJX1g54%2FoCLJEWjWSHcRTkAd7H%2FeWujhzo%2FmQcA4YmYdNTeAx%2Ftf7bBVGhUxoxjSa0uqR%2FotPiQZ4ehYNmk%3D1487582755342"
+    url = "https://passport.douyu.com/iframe/loginNew"
+    headers = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+               'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36',
+               'accept': 'application/json, text/javascript, */*; q=0.01',
+               'accept-encoding': 'gzip, deflate, br',
+               'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7',
+               'referer': 'https://passport.douyu.com/member/login?state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp'}
+    data = OrderedDict()
+    data['username'] = nickname
+    data['password'] = epwd
+    data['room_id'] = 0
+    data['code_verify_data[code_type]'] = code_type
+    data['code_verify_data[code_token]'] = code_token
+    data['code_verify_data[code_data]'] = dict()
+    data['code_verify_data[code_data][geetest_challenge]'] = challenge
+    data['code_verify_data[code_data][id]'] = code_data_id
+    data['code_verify_data[code_data][gt_version]'] = 'v4'
+    data['redirect_url'] = 'https://passport.douyu.com/member/login?state=https://www.douyu.com/member/cp'
+    data['t'] = timestamp
+    data['client_id'] = 1
+    data['sm_did'] = sm_did_str
+    data['did'] = ''
+    data['lang'] = 'cn'
+    data = urllib.urlencode(data)
+    logger.debug(data)
+    r = requests.post(url, data=data,headers=headers,verify=False)
+    logger.debug(r.url)
+    ##判断http post返回值
+    if r.status_code != requests.codes.ok:
+        logger.error('post 失败,r.status_code=%d', r.status_code)
+        return False
+    logger.debug('post 成功, r.status_code=%d', r.status_code)
+
+    responsed = r.json()
+    if responsed.has_key('msg'):
+        logger.debug('msg:'+ responsed['msg'])
+    logger.debug(responsed)
+    error = str(responsed['error'])
+
+    if error != '0':
+        logger.debug('获取数据失败')
+        return False
+
+    logger.info('获取数据成功')
+    return responsed['data']
+
+def callbackParaGene():
+    """
+    产生一个回调的参数，格式：jQuery111304560208910648751_1554102116618
+    jQuer+11130+16位数字+'_'+ 13位时间戳
+    :return:
+    """
+    j = 9
+    str1 = []
+    str1 = ''.join(str(i) for i in random.sample(range(0, 9), j))  # sample(seq, n) 从序列seq中选择n个随机且独立的元素；
+    j = 7
+    str2 = []
+    str2 = ''.join(str(i) for i in random.sample(range(0, 9), j))  # sample(seq, n) 从序列seq中选择n个随机且独立的元素；
+    str3= 'jQuery11130' + str1 + str2 +'_%d' %(int(round(time.time() * 1000)))
+    return str3
+
+
+def LoginGetCookie(para):
+    """
+    功能：使用api接口获取cookie
+    :param para: 字典，格式如下：
+        {
+		"url": "\/\/www.douyu.com\/api\/passport\/login?code=1fffeb717a9cdb2a9faf101b7cec321d&uid=115859967&client_id=1&loginType=loginNew",
+		"isAutoReg": 0,
+		"nickname": "\u6b27\u8036\u5c71\u54e5"
+	    }
+    需要做处理
+    :return: cookie_str
+    """
+    url = 'https://www.douyu.com/api/passport/login'
+    logger.info(url)
+    headers = {'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+               'User-Agent': 'Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.77 Mobile Safari/537.36',
+               'accept': '*/*',
+               'accept-encoding': 'gzip, deflate, br',
+               'accept-language': 'zh-CN,zh;q=0.9,en;q=0.8,zh-TW;q=0.7',
+               'referer': 'https://passport.douyu.com/member/login?state=https%3A%2F%2Fwww.douyu.com%2Fmember%2Fcp'}
+    result = urlparse.urlparse(para['url'])
+    para_dict = urlparse.parse_qs(result.query)
+    data_dict = OrderedDict()
+    data_dict['code'] = para_dict['code'][0]
+    data_dict['uid']  = para_dict['uid'][0]
+    data_dict['client_id'] = para_dict['client_id'][0]
+    data_dict['loginType'] = para_dict['loginType'][0]
+    #data_dict['callback'] = 'jQuery111305212150702461193_%d' %(int(round(time.time() * 1000)))
+    data_dict['callback'] = callbackParaGene()
+    data_dict['url'] = para['url']
+    data_dict['isAutoReg'] = para['isAutoReg']
+    data_dict['nickname']  = para['nickname']
+    data_dict['_']         = int(round(time.time() * 1000))
+    logger.info(data_dict)
+    r = requests.get(url, params=data_dict, headers=headers, verify=False)
+    #r = requests.get(url, params=data_dict, headers=headers, verify='./dy.cer')
+    logger.debug(r.url)
+    ##判断http post返回值
+    if r.status_code != requests.codes.ok:
+        logger.error('get 失败,r.status_code=%d', r.status_code)
+        return False
+    logger.info('get 成功, r.status_code=%d', r.status_code)
+    logger.info(r.text)
+    logger.info(type(r.text))
+    responsed = r.text
+
+    if responsed.find(data_dict['callback']) <0 or responsed.find('"error":0') < 0:
+        return False
+
+    logger.info(r.cookies)
+    logger.info(type(r.cookies))
+    cookies = requests.utils.dict_from_cookiejar(r.cookies)
+    logger.info(cookies)
+    logger.info(type(cookies))
+    i = 0
+    cookie_str = ''
+    for key, value in cookies.items():
+        if i != 0:
+            cookie_str = cookie_str + '; '
+        cookie_str = cookie_str + key + '=' + value
+        i = i + 1
+    logger.info(cookie_str)
+    return cookie_str
+
 logger = gl.get_logger()
+urllib3.disable_warnings()

@@ -21,7 +21,7 @@ class E8372H155():
         self.url = 'http://192.168.8.1/html/home.html'
         self.reboot_url = 'http://192.168.8.1/html/reboot.html'
         chrome_options = webdriver.ChromeOptions()
-        #chrome_options.add_argument('--headless')
+        chrome_options.add_argument('--headless')
         chrome_options.add_argument('--log-level=3')
         if platform.system() == 'Darwin':
             self.browser = webdriver.Chrome('/Applications/chromedriver')
@@ -63,7 +63,7 @@ class E8372H155():
         #self.browser.find_element(By.XPATH,"//input[@id='pop_confirm' and @value='确定']").click();
         button = self.wait.until(EC.presence_of_element_located((By.XPATH, "//input[@id='pop_confirm' and @value='确定']")))
         button.click()
-        time.sleep(40)
+        time.sleep(60)
         logger.debug("重启4G Model完成")
 
 
